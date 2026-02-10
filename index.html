@@ -494,7 +494,7 @@ The object of poetry is confessedly to act upon the emotions; and therein is poe
       }
       return lines;
     }
-    const ANIM_DELAY = 8;
+    const ANIM_DELAY = 60;
     function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
     function escapeHtml(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
     function latin1(b) { return Array.from(b).map(x => String.fromCharCode(x)).join(''); }
