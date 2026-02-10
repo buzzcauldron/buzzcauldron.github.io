@@ -229,6 +229,9 @@
       border: 1px solid var(--color-border);
     }
     .encrypt-output:empty { display: none; }
+    .viz-header, .viz-msg { color: var(--color-accent); }
+    .viz-block { margin: 0.5rem 0; white-space: pre-wrap; word-break: break-all; }
+    .viz-token { display: block; margin-top: 0.5rem; word-break: break-all; }
     .poem-output { font-family: var(--font-serif); font-size: 1.05rem; line-height: 1.8; }
 
     @media (min-width: 600px) {
@@ -491,6 +494,11 @@ The object of poetry is confessedly to act upon the emotions; and therein is poe
       }
       return lines;
     }
+    const ANIM_DELAY = 8;
+    function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+    function escapeHtml(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+    function latin1(b) { return Array.from(b).map(x => String.fromCharCode(x)).join(''); }
+
     function encryptVisual(plaintext, password) {
       const key = deriveKey(password);
       const rawLines = splitLinesKeepends(plaintext);
@@ -500,13 +508,36 @@ The object of poetry is confessedly to act upon the emotions; and therein is poe
         [indexed[i], indexed[j]] = [indexed[j], indexed[i]];
       }
       const shuffleMap = indexed.map(x => x.i);
-      const ctBlob = indexed.map(x => xorCrypt(new TextEncoder().encode(x.line), key));
+      const ctLines = indexed.map(x => xorCrypt(new TextEncoder().encode(x.line), key));
       const mapStr = shuffleMap.join(',');
       const mapBytes = new TextEncoder().encode(mapStr);
       const sepBytes = new TextEncoder().encode(SEPARATOR);
-      const ct = new Uint8Array([...mapBytes, ...sepBytes, ...ctBlob.flatMap(a => [...a])]);
-      return btoa(String.fromCharCode.apply(null, ct)).replace(/\+/g, '-').replace(/\//g, '_');
+      const ct = new Uint8Array([...mapBytes, ...sepBytes, ...ctLines.flatMap(a => [...a])]);
+      const token = btoa(String.fromCharCode.apply(null, ct)).replace(/\+/g, '-').replace(/\//g, '_');
+      return { indexed, ctLines, token };
     }
+    async function runEncryptVisual(outEl, plaintext, password) {
+      const { indexed, ctLines, token } = encryptVisual(plaintext, password);
+      let html = '<span class="viz-header">=== <strong>ENCRYPTING</strong> ===</span><br><br>';
+      html += '<span class="viz-msg">**key derived**</span><br><br>';
+      html += '<span class="viz-msg">**you wrote** (' + indexed.length + ' lines):</span><br>';
+      html += '<pre class="viz-block">' + escapeHtml(indexed.map(x => x.line.replace(/\n$/,'')).join('')) + '</pre>';
+      html += '<span class="viz-msg">**the beast feeds**:</span><br>';
+      outEl.innerHTML = html;
+      const block = outEl.querySelector('.viz-block');
+      const fullPlain = new TextEncoder().encode(indexed.map(x => x.line).join(''));
+      const fullCt = new Uint8Array(ctLines.flatMap(a => [...a]));
+      const buf = new Uint8Array(fullCt.length);
+      buf.set(fullPlain.subarray(0, Math.min(fullPlain.length, fullCt.length)));
+      for (let i = 0; i < fullCt.length; i++) {
+        buf[i] = fullCt[i];
+        block.textContent = latin1(buf);
+        await sleep(ANIM_DELAY);
+      }
+      html = outEl.innerHTML + '<br><span class="viz-msg">**a dream remains**.</span><br><br>';
+      outEl.innerHTML = html + '<code class="viz-token">' + escapeHtml(token) + '</code>';
+    }
+
     function decryptVisual(token, password) {
       token = token.replace(/-/g, '+').replace(/_/g, '/');
       const raw = atob(token);
@@ -530,26 +561,48 @@ The object of poetry is confessedly to act upon the emotions; and therein is poe
       if (ptLines.length !== shuffleMap.length) throw new Error('corruption is permanent.');
       const out = new Array(shuffleMap.length);
       shuffleMap.forEach((origIdx, i) => { out[origIdx] = ptLines[i]; });
-      return out.join('');
+      return { ctBlob, ptBytes: new TextEncoder().encode(out.join('')) };
     }
+    async function runDecryptVisual(outEl, token, password) {
+      const { ctBlob, ptBytes } = decryptVisual(token, password);
+      let html = '<span class="viz-header">=== <strong>i unmask</strong> ===</span><br><br>';
+      html += '<span class="viz-msg">**key derived**.</span><br>';
+      html += '<span class="viz-msg">**feeding ciphertext**...</span><br><br>';
+      html += '<span class="viz-msg">**the truth is revealed** (character by character):</span><br>';
+      html += '<pre class="viz-block">';
+      outEl.innerHTML = html;
+      const block = outEl.querySelector('.viz-block');
+      const ct = new Uint8Array(ctBlob);
+      const pt = new Uint8Array(ptBytes);
+      const maxLen = Math.max(ct.length, pt.length);
+      const buf = new Uint8Array(maxLen);
+      buf.set(ct);
+      for (let i = 0; i < maxLen; i++) {
+        buf[i] = i < pt.length ? pt[i] : 32;
+        block.textContent = latin1(buf);
+        await sleep(ANIM_DELAY);
+      }
+      outEl.innerHTML += '</pre><br>';
+    }
+
     const input = document.getElementById('encrypt-input');
     const password = document.getElementById('encrypt-password');
     const output = document.getElementById('encrypt-output');
-    document.getElementById('encrypt-btn').onclick = function() {
-      output.textContent = '';
+    document.getElementById('encrypt-btn').onclick = async function() {
+      output.innerHTML = '';
       const text = input.value.trim();
       const pw = password.value;
       if (!pw) { output.textContent = 'Enter a password.'; return; }
       if (!text) { output.textContent = 'Enter text to encrypt.'; return; }
-      try { output.textContent = encryptVisual(text, pw); } catch (e) { output.textContent = e.message; }
+      try { await runEncryptVisual(output, text, pw); } catch (e) { output.textContent = e.message; }
     };
-    document.getElementById('decrypt-btn').onclick = function() {
-      output.textContent = '';
+    document.getElementById('decrypt-btn').onclick = async function() {
+      output.innerHTML = '';
       const text = input.value.trim();
       const pw = password.value;
       if (!pw) { output.textContent = 'Enter a password.'; return; }
       if (!text) { output.textContent = 'Enter a token to decrypt.'; return; }
-      try { output.textContent = decryptVisual(text, pw); } catch (e) { output.textContent = e.message; }
+      try { await runDecryptVisual(output, text, pw); } catch (e) { output.textContent = e.message; }
     };
 
     // Poem Frankensteiner
