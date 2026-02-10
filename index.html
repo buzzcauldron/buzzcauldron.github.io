@@ -1,22 +1,377 @@
-   <!DOCTYPE html>
-   <html lang="en">
-   <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Seth Strickland | Teaching & Research</title>
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
-   </head>
-   <body>
-     <header>...</header>
-     <main>
-       <section id="hero">...</section>
-       <section id="about">...</section>
-       <section id="courses">...</section>
-       <section id="research">...</section>
-       <section id="contact">...</section>
-     </main>
-     <footer>...</footer>
-   </body>
-   </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seth Strickland | Lecturer, Medieval Literature & Digital Humanities</title>
+  <meta name="description" content="Seth Strickland — Lecturer in Writing and Communications at Carnegie Mellon University. Medieval literature, Poetry for Programmers, Glyph Machina, Digital Humanities.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- JSON-LD Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://strickland.github.io/#person",
+        "name": "Seth Strickland",
+        "email": "sstrickl@andrew.cmu.edu",
+        "telephone": "+1-607-288-2604",
+        "url": "https://strickland.github.io",
+        "sameAs": ["https://www.instagram.com/sethcoastisthebestcoast/", "https://www.theplowmanstudio.com/"],
+        "jobTitle": "Lecturer in Writing and Communications",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Carnegie Mellon University",
+          "url": "https://www.cmu.edu"
+        },
+        "knowsAbout": ["Medieval Literature", "Digital Humanities", "Piers Plowman", "Poetry", "Machine Learning", "XML/TEI", "Python"],
+        "alumniOf": [
+          {"@type": "CollegeOrUniversity", "name": "Cornell University", "address": "Ithaca, NY"},
+          {"@type": "CollegeOrUniversity", "name": "Saint Louis University", "address": "St. Louis, MO"},
+          {"@type": "CollegeOrUniversity", "name": "Hillsdale College", "address": "Hillsdale, MI"}
+        ],
+        "hasCredential": [
+          {"@type": "EducationalOccupationalCredential", "credentialCategory": "degree", "name": "Ph.D. Medieval Literature", "educationalLevel": "Doctorate"},
+          {"@type": "EducationalOccupationalCredential", "credentialCategory": "degree", "name": "M.A. Medieval Literature", "educationalLevel": "Master"},
+          {"@type": "EducationalOccupationalCredential", "credentialCategory": "degree", "name": "M.A. English", "educationalLevel": "Master"},
+          {"@type": "EducationalOccupationalCredential", "credentialCategory": "degree", "name": "B.A. Classics and English Literature", "educationalLevel": "Bachelor"}
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://strickland.github.io/#website",
+        "url": "https://strickland.github.io",
+        "name": "Seth Strickland",
+        "description": "Academic portfolio and teaching philosophy",
+        "author": {"@id": "https://strickland.github.io/#person"}
+      },
+      {
+        "@type": "Course",
+        "name": "Poetry for Programmers",
+        "description": "Integrates formal poetics with the philosophy of computer science",
+        "provider": {"@type": "Organization", "name": "Carnegie Mellon University"}
+      },
+      {
+        "@type": "CreativeWork",
+        "name": "Glyph Machina",
+        "description": "Medievalist and technical liaison; manuscript transcription to XML; field-defining Handwritten Character Recognition (HCR) model with CNN and LSTM in PyTorch",
+        "author": {"@id": "https://strickland.github.io/#person"}
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --color-bg: #F5F1EB;
+      --color-text: #1A1816;
+      --color-text-muted: #4A4541;
+      --color-accent: #6B5344;
+      --color-border: #D4CFC7;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Source Sans 3', -apple-system, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font-serif);
+      font-size: 1.125rem;
+      line-height: 1.7;
+      color: var(--color-text);
+      background: var(--color-bg);
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    header {
+      border-bottom: 1px solid var(--color-border);
+      padding-bottom: 2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    h1 {
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: 1.75rem;
+      letter-spacing: 0.02em;
+      margin: 0 0 0.5rem 0;
+    }
+
+    .contact {
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+    }
+
+    .contact a {
+      color: var(--color-accent);
+      text-decoration: none;
+    }
+
+    .contact a:hover { text-decoration: underline; }
+
+    nav {
+      margin-top: 1.5rem;
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+    }
+
+    nav a {
+      color: var(--color-text-muted);
+      text-decoration: none;
+      margin-right: 1.5rem;
+    }
+
+    nav a:hover { color: var(--color-accent); }
+
+    h2 {
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-accent);
+      margin: 2.5rem 0 1rem 0;
+    }
+
+    h3 {
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: 1rem;
+      margin: 1.25rem 0 0.35rem 0;
+    }
+
+    .role { font-style: italic; color: var(--color-text-muted); }
+    .date { font-family: var(--font-sans); font-size: 0.85rem; color: var(--color-text-muted); }
+    ul { margin: 0.5rem 0; padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+
+    .teaching-philosophy p {
+      margin-bottom: 1rem;
+    }
+
+    .teaching-philosophy p:first-of-type::first-letter {
+      float: left;
+      font-size: 3rem;
+      line-height: 0.85;
+      margin-right: 0.35rem;
+      font-family: var(--font-serif);
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--color-border);
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+    }
+
+    @media (min-width: 600px) {
+      .container { padding: 3rem 2rem; }
+      h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Seth Strickland</h1>
+      <p class="contact">
+        <a href="mailto:sstrickl@andrew.cmu.edu">sstrickl@andrew.cmu.edu</a> · H +1 607 288 2604 · Instagram <a href="https://www.instagram.com/sethcoastisthebestcoast/">@sethcoastisthebestcoast</a> · <a href="https://strickland.github.io">buzzcauldron</a>
+      </p>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#appointments">Appointments</a>
+        <a href="#dh">Digital Humanities</a>
+        <a href="#publications">Publications</a>
+        <a href="#lectures">Lectures</a>
+        <a href="#awards">Awards</a>
+        <a href="#presentations">Presentations</a>
+        <a href="#skills">Skills</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="about" class="teaching-philosophy">
+        <h2>About</h2>
+        <p>I open my "Poetry for Programmers" course by pulling up the Visual Studio Code interface—dark mode, with neon highlights. In windows next to each other are two files: CP40-58m14b.xml and CP40-58m14b.jpg. The file on the left is a vibrant stack of coordinates interlaced with white text—all written in a language many students will eventually recognize as Latin. On the right is a just-shy-of-pixelated photograph of a tattered medieval manuscript, covered in arcane lines of script. I ask them to use the XML transcript to help them decipher the paleographical text. By the end of a few minutes, most have engaged in paleography for the first time. I tell them that digital tools and antique expertise have much to teach each other—the patterns of poetic structure can shape our minds as effectively as the patterns of digital interactions shape our online lives.</p>
+        <p>My teaching philosophy rests on the supposition that while tools change, the human desire for narrative pattern and exception remains stable. Whether teaching students to analyze a sonnet or apply machine learning methods to civic problems, I aim to show that with a robust imagination, we can rediscover innovative methods by carefully examining the history of technology. For instance, I have developed a course on "medieval AI," which examines the history of literary engagements with infinite-knowledge technology. My teaching fosters a rapid sense of belonging that affirms students—whether they are approaching DNID from the perspective of English, Information Science, or Studio Arts—because of their diverse backgrounds, not in spite of them.</p>
+        <p>I take a design-centric approach to pedagogy; each class asks for "user feedback" on the materials, order of concepts, and design of course websites and assignments. I have developed and offered ten iterations of a mini called 'Poetry for Programmers,' which integrates formal poetics with the philosophy of computer science. We look at a poem by Pittsburgh poet Cameron Barnett where the stanzas all begin with 1 or 0—the ASCII binary for "I," the very coded subject of the poem. My work on Glyph Machina involves a field-defining Handwritten Character Recognition (HCR) model, utilizing CNNs connected to LSTMs in PyTorch—experience that helps me guide students in humanities-oriented AI/ML and ethical development.</p>
+      </section>
+
+      <section id="education">
+        <h2>Education</h2>
+        <h3>Cornell University <span class="date">Ithaca, NY</span></h3>
+        <p><strong>Ph.D., Medieval Literature</strong> 2022<br>
+        Dissertation: "Rewrite this Book: Compilation and Experimental Literary Practices in Piers Plowman and Late Medieval English Book Culture"</p>
+        <p><strong>M.A., Medieval Literature</strong> 2019</p>
+
+        <h3>Saint Louis University <span class="date">St. Louis, MO</span></h3>
+        <p><strong>M.A., English</strong> 2016<br>
+        Thesis: "Double Vision: Piers Plowman and the Medieval Miscellany"</p>
+
+        <h3>Hillsdale College <span class="date">Hillsdale, MI</span></h3>
+        <p><strong>B.A., Classics and English Literature</strong> 2012</p>
+      </section>
+
+      <section id="appointments">
+        <h2>Academic Appointments</h2>
+        <h3>Carnegie Mellon University <span class="date">Aug 2023 – Present · Pittsburgh, PA</span></h3>
+        <p class="role">Lecturer – Writing and Communications</p>
+        <ul>
+          <li>Courses: 76-106 Poetry for Programmers; 76-101 Hunger: Interpretation and Argument; 76-270 Writing for the Professions</li>
+          <li>Member, Diversity, Equity, and Inclusion Working Group</li>
+        </ul>
+
+        <h3>Cornell University <span class="date">Aug 2022 – May 2023 · Ithaca, NY</span></h3>
+        <p class="role">Joseph F. Martino '53 Lecturer in Undergraduate Teaching</p>
+        <ul>
+          <li>Courses: Erotic Ecologies I & II; Medieval Dreams and Modern Insomnia</li>
+        </ul>
+
+        <h3>Cornell University <span class="date">Aug 2017 – Dec 2021 · Ithaca, NY</span></h3>
+        <p class="role">Instructor of Record</p>
+        <ul>
+          <li>Courses: Writing and Community Engagement; American Voices; Games and Contests; Collecting Evidence</li>
+          <li>President, Medieval Studies Graduate Organization; Graduate Policy and Liaison Committee Member</li>
+        </ul>
+
+        <h3>Saint Louis University <span class="date">Aug 2014 – May 2016 · St. Louis, MO</span></h3>
+        <p class="role">Instructor of Record</p>
+        <ul>
+          <li>Course: Advanced Strategies in Rhetoric and Research</li>
+          <li>Co-Founder: Text Mining Initiative, Walter J. Ong, S.J., Center for Digital Humanities</li>
+        </ul>
+      </section>
+
+      <section id="dh">
+        <h2>Digital Humanities & Public Scholarship</h2>
+        <h3>Digital Humanities Lab <span class="date">2025 – Present · Pittsburgh, PA</span></h3>
+        <p class="role">Co-Founder</p>
+
+        <h3>Digital Humanities Working Group <span class="date">2025 – Present</span></h3>
+        <p class="role">Department Coordinator</p>
+
+        <h3>Issuing Citations <span class="date">2025 – Present · Pittsburgh, PA</span></h3>
+        <p class="role">Chair and Co-Founder</p>
+        <ul><li>Forming academic connections and providing new audiences for graduate research.</li></ul>
+
+        <h3>Glyph Machina <span class="date">2023 – Present · Remote</span></h3>
+        <p class="role">Medievalist & Technical Liaison</p>
+        <ul>
+          <li>Transcribed manuscripts to .xml format and corrected transcriptions in VS Code</li>
+          <li>Authored approved SBIR Pre-application documents and internal technical documentation</li>
+        </ul>
+
+        <h3>Public Works <span class="date">2022 – 2023 · Ithaca, NY</span></h3>
+        <p class="role">Co-Founder</p>
+        <ul><li>Co-founded and maintained a public-facing lecture series (www.publicworks.info)</li></ul>
+
+        <h3>Text Mining Initiative <span class="date">2014 – 2016 · St. Louis, MO</span></h3>
+        <p class="role">Co-Founder</p>
+        <ul><li>Co-founded a digital humanities working group aimed at genre identification through distant reading practices</li></ul>
+      </section>
+
+      <section id="publications">
+        <h2>Publications & Creative Work</h2>
+        <h3>Academic Publications</h3>
+        <ul>
+          <li>"III Middle English: Langland" (May 2025). <em>The Year's Work in English Studies</em> 104.1.</li>
+          <li>"Review of Elise Wang, The Making of Felony Procedure in Middle English Literature" (2025). <em>Law and History Review</em>.</li>
+          <li>"III Middle English: Langland" (May 2024). <em>The Year's Work in English Studies</em> 103.1.</li>
+          <li>"III Middle English: Langland" (July 2023). <em>Year's Work in English Studies</em> 102.1, pp. 171–263.</li>
+          <li>"III Middle English: Langland" (July 2022). <em>Year's Work in English Studies</em> 101.1, pp. 185–282.</li>
+          <li>"Review of Arvind Thomas, Piers Plowman and the Reinvention of Church Law in the Late Middle Ages" (2022). <em>Recherche littéraire / Literary Research</em> 38.1.</li>
+        </ul>
+        <h3>Creative Works</h3>
+        <ul>
+          <li>"[My father didn't see the possum trundling]" (2024). <em>The Pierian</em>.</li>
+          <li>"[Nothing Can Express it]" (May 2024). <em>Stink Eye Magazine</em>.</li>
+          <li>"Goodbye, Mexico: Poems of Remembrance" (2020). Ed. Sarah Cortez. Texas A&M University Press. Chap. A Certain Lie about the Phoenix.</li>
+          <li>"Imagination" (2015), "[When you know what it is to suffer]" (2012), "Garlic" (2012), "Orion" (2012). <em>The Tower Light</em>.</li>
+        </ul>
+      </section>
+
+      <section id="lectures">
+        <h2>Invited Lectures (Selected)</h2>
+        <h3>The Beatrice Institute <span class="date">Pittsburgh, PA</span></h3>
+        <ul>
+          <li>"Reflections on Lucian Simon's 'Schola' (1926)" Aug 2025</li>
+          <li>"Romantic Poetry: The Theology of Blake's Poison Tree" Mar 2025</li>
+          <li>"Piers Plowman and Questions of Justice" Feb 2025</li>
+          <li>"Old English Poetry: Dream of the Rood" Jan 2025</li>
+          <li>"Reflections on Robert Gwathmey's 'Hoeing'" Aug 2024</li>
+        </ul>
+        <h3>University of Pittsburgh <span class="date">Sept 2023</span></h3>
+        <ul><li>"The manuscripts of Piers Plowman"</li></ul>
+        <h3>International Poetry Forum <span class="date">Pittsburgh, PA</span></h3>
+        <ul><li>"Albertus Magnus as Guidance for Ethics and AI" (Poets-in-Person series) Nov 2024</li></ul>
+      </section>
+
+      <section id="awards">
+        <h2>Awards, Fellowships, and Grants</h2>
+        <ul>
+          <li>Project & Proposals Award ($2000) — American Society for Legal History</li>
+          <li>Provost's Inclusive Teaching Fellowship ($5000) — Carnegie Mellon University</li>
+          <li>Centre for Medieval Literature Graduate Student Bursary — SDU / York</li>
+          <li>Sage Fellowship — Cornell University</li>
+          <li>Alan Young-Bryant Poetry Award — Cornell University</li>
+          <li>Truman Capote PhD Writer's Award — Cornell University</li>
+          <li>Vatican Film Library Research Grant ($8000) — Saint Louis University</li>
+          <li>Donald Howard Travel Scholarship — New Chaucer Society</li>
+          <li>Newberry Renaissance Consortium Grant — Newberry Library</li>
+        </ul>
+      </section>
+
+      <section id="presentations">
+        <h2>Conference Presentations</h2>
+        <ul>
+          <li>Bannon, Dylan et al. (2025). "Making the Law Legible: a self-correcting BERT-like transformer as manuscript transcription aid." The 27th Conference of the Association for the Study of Law, Culture, and the Humanities.</li>
+          <li>"Divine Daughters in Law" (2025). 27th Conference of the Association for the Study of Law, Culture, and the Humanities, Georgetown Law, Washington, D.C.</li>
+          <li>"The Brazen Head of Vector Analysis: Robert Grosseteste and Albertus Magnus as Technological Forerunners" (2025). Twentieth International Conference on Interdisciplinary Social Sciences.</li>
+          <li>"The Last Medieval Scribe: John Colyns and Authorial Control" (2023). Public Works. Ithaca, NY.</li>
+          <li>"Playing Chicken with Fate: Fortunate Dreams of the Body in Chaucer's 'The Nun's Priest's Tale'" (2022). New Chaucer Society. Durham University.</li>
+          <li>"Your Own Personal Archive: Piers Plowman and Innovations of Abstraction" (2022). Centre for Medieval Literature. The Danish Institute, Rome.</li>
+          <li>"'Speke, Parrot': Echoes of Romance in Harley 2252" (2019). Leeds International Medieval Congress.</li>
+          <li>"Death in Unity: Skepticism, Wounds, and Epistemic Crises in Piers Plowman B.20" (2019). 7th International Piers Plowman Society Meeting. University of Miami.</li>
+          <li>"Peace at Peace: Scales of Redemption in Piers Plowman" (2018). New Chaucer Society Biennial Congress. University of Toronto.</li>
+          <li>"Incest and the Grammar of the Gloss: Productive Omission in Pericles and Confessio Amantis" (2016). IV International Congress of the John Gower Society. Durham University.</li>
+          <li>"Roundtable: Doing DH: Opportunities and Challenges for Graduate Students in the Digital Humanities" (2016). With Helen Davies, Margaret Smith. 4th Annual Symposium on Medieval and Renaissance Studies. Saint Louis University.</li>
+          <li>"Which Time Is It? Digital Queries and Early Modern Period Schemes" (2016). Co-written with Jonathan Sawday, Lauren Kersey, Geoffrey Brewer. The Walter J. Ong Symposium on Digital Humanities. Saint Louis University.</li>
+        </ul>
+      </section>
+
+      <section id="skills">
+        <h2>Skills & Languages</h2>
+        <h3>Research Languages</h3>
+        <ul>
+          <li>Professional/Advanced: Latin, Middle English, Old English</li>
+          <li>Intermediate/Reading: French (B1), Old Norse, German</li>
+          <li>Basic: Spanish, Italian, Old French, Attic Greek</li>
+        </ul>
+        <h3>Technical Skills</h3>
+        <ul>
+          <li>Languages/Formats: Python, Julia, HTML5, LaTeX, XML/TEI</li>
+          <li>Tools: VS Code, Text Mining (Stylometry), Linux</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <p>Last updated: January 16, 2026</p>
+    </footer>
+  </div>
+</body>
+</html>
