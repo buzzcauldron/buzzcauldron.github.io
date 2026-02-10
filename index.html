@@ -177,6 +177,60 @@
       color: var(--color-text-muted);
     }
 
+    .encryption-tool {
+      font-family: var(--font-sans);
+      margin-top: 1rem;
+    }
+    .encryption-tool label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-top: 1rem;
+      margin-bottom: 0.35rem;
+    }
+    .encryption-tool label:first-child { margin-top: 0; }
+    .encryption-tool textarea,
+    .encryption-tool input[type="password"] {
+      width: 100%;
+      padding: 0.6rem 0.75rem;
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      border: 1px solid var(--color-border);
+      background: #fff;
+      color: var(--color-text);
+    }
+    .encryption-tool textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    .encrypt-buttons {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+    .encryption-tool button {
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      padding: 0.5rem 1rem;
+      background: var(--color-accent);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    .encryption-tool button:hover { opacity: 0.9; }
+    .encrypt-output {
+      margin-top: 1rem;
+      padding: 1rem;
+      font-family: 'ui-monospace', monospace;
+      font-size: 0.85rem;
+      white-space: pre-wrap;
+      word-break: break-all;
+      background: #fff;
+      border: 1px solid var(--color-border);
+    }
+    .encrypt-output:empty { display: none; }
+    .poem-output { font-family: var(--font-serif); font-size: 1.05rem; line-height: 1.8; }
+
     @media (min-width: 600px) {
       .container { padding: 3rem 2rem; }
       h1 { font-size: 2rem; }
@@ -192,6 +246,8 @@
       </p>
       <nav>
         <a href="#about">About</a>
+        <a href="#encryption">Encryption Poem</a>
+        <a href="#frankensteiner">Poem Frankensteiner</a>
         <a href="#education">Education</a>
         <a href="#appointments">Appointments</a>
         <a href="#dh">Digital Humanities</a>
@@ -209,6 +265,49 @@
         <p>I open my "Poetry for Programmers" course by pulling up the Visual Studio Code interface—dark mode, with neon highlights. In windows next to each other are two files: CP40-58m14b.xml and CP40-58m14b.jpg. The file on the left is a vibrant stack of coordinates interlaced with white text—all written in a language many students will eventually recognize as Latin. On the right is a just-shy-of-pixelated photograph of a tattered medieval manuscript, covered in arcane lines of script. I ask them to use the XML transcript to help them decipher the paleographical text. By the end of a few minutes, most have engaged in paleography for the first time. I tell them that digital tools and antique expertise have much to teach each other—the patterns of poetic structure can shape our minds as effectively as the patterns of digital interactions shape our online lives.</p>
         <p>My teaching philosophy rests on the supposition that while tools change, the human desire for narrative pattern and exception remains stable. Whether teaching students to analyze a sonnet or apply machine learning methods to civic problems, I aim to show that with a robust imagination, we can rediscover innovative methods by carefully examining the history of technology. For instance, I have developed a course on "medieval AI," which examines the history of literary engagements with infinite-knowledge technology. My teaching fosters a rapid sense of belonging that affirms students—whether they are approaching DNID from the perspective of English, Information Science, or Studio Arts—because of their diverse backgrounds, not in spite of them.</p>
         <p>I take a design-centric approach to pedagogy; each class asks for "user feedback" on the materials, order of concepts, and design of course websites and assignments. I have developed and offered ten iterations of a mini called 'Poetry for Programmers,' which integrates formal poetics with the philosophy of computer science. We look at a poem by Pittsburgh poet Cameron Barnett where the stanzas all begin with 1 or 0—the ASCII binary for "I," the very coded subject of the poem. My work on Glyph Machina involves a field-defining Handwritten Character Recognition (HCR) model, utilizing CNNs connected to LSTMs in PyTorch—experience that helps me guide students in humanities-oriented AI/ML and ethical development.</p>
+      </section>
+
+      <section id="encryption">
+        <h2>Encryption Poem</h2>
+        <p>Encrypt or decrypt text with a visual cipher inspired by <a href="https://github.com/buzzcauldron/encryptionpoem/blob/main/cp9.2.py" target="_blank" rel="noopener">encryptionpoem</a>. Enter your text and a password.</p>
+        <div class="encryption-tool">
+          <label for="encrypt-input">Text</label>
+          <textarea id="encrypt-input" rows="6" placeholder="Enter plaintext to encrypt, or a token to decrypt…">You cannot get the curve out of your head -
+The high arch of line, nobility
+Of the lie: feather and threads
+To thread through bloody feathers
+Which lie secret, but now!
+The snap of sudden sunlighted spray,
+Gravity reminding you of itself
+And the lake which recently floated
+All things has become a clear cliff
+For the feather-frond-fingered
+To crawl up to the mud below you.</textarea>
+          <label for="encrypt-password">Password</label>
+          <input type="password" id="encrypt-password" placeholder="Your key">
+          <div class="encrypt-buttons">
+            <button type="button" id="encrypt-btn">Encrypt</button>
+            <button type="button" id="decrypt-btn">Decrypt</button>
+          </div>
+          <div id="encrypt-output" class="encrypt-output" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section id="frankensteiner">
+        <h2>Poem Frankensteiner</h2>
+        <p>Randomly reduce and lineate text into verse, inspired by <a href="https://github.com/buzzcauldron/poem-frankensteiner" target="_blank" rel="noopener">poem-frankensteiner</a>. Enter source text and choose how much to keep.</p>
+        <div class="encryption-tool frankensteiner-tool">
+          <label for="frankensteiner-input">Source Text</label>
+          <textarea id="frankensteiner-input" rows="6" placeholder="Paste prose or poetry to reduce and lineate…">It has often been asked, What Is Poetry? And many and various are the answers which have been returned. The vulgarest of all--one with which no person possessed of the faculties to which poetry addresses itself can ever have been satisfied--is that which confounds poetry with metrical composition; yet to this wretched mockery of a definition many have been led back by the failure of all their attempts to find any other that would distinguish what they have been accustomed to call poetry from much which they have known only under other names.
+That, however, the word "poetry" imports something quite peculiar in its nature; something which may exist in what is called prose as well as in verse; something which does not even require the instrument of words, but can speak through the other audible symbols called musical sounds, and even through the visible ones which are the language of sculpture, painting, and architecture--all this, we believe, is and must be felt, though perhaps indistinctly, by all upon whom poetry in any of its shapes produces any impression beyond that of tickling the ear.
+The object of poetry is confessedly to act upon the emotions; and therein is poetry sufficiently distinguished from what Wordsworth affirms to be its logical opposite; namely, not prose but matter of fact, or science. The one addresses itself to the belief; the other, to the feelings. The one does its work by convincing or persuading; the other, by moving.</textarea>
+          <label for="frankensteiner-pct">Words to keep <span id="frankensteiner-pct-val">15</span>%</label>
+          <input type="range" id="frankensteiner-pct" min="3" max="50" value="15" style="width:100%;margin:0.5rem 0">
+          <div class="encrypt-buttons">
+            <button type="button" id="frankensteiner-btn">Generate Poem</button>
+          </div>
+          <div id="frankensteiner-output" class="encrypt-output poem-output" aria-live="polite"></div>
+        </div>
       </section>
 
       <section id="education">
@@ -373,5 +472,116 @@
       <p>Last updated: January 16, 2026</p>
     </footer>
   </div>
+
+  <script>
+  (function() {
+    const SEPARATOR = '|';
+    function deriveKey(password) { return new TextEncoder().encode(password); }
+    function xorCrypt(data, keyBytes) {
+      const out = new Uint8Array(data.length);
+      for (let i = 0; i < data.length; i++) out[i] = data[i] ^ keyBytes[i % keyBytes.length];
+      return out;
+    }
+    function splitLinesKeepends(text) {
+      const segments = text.split(/\r?\n/);
+      const lines = [];
+      for (let k = 0; k < segments.length; k++) {
+        if (segments[k] !== '' || k < segments.length - 1)
+          lines.push(segments[k] + (k < segments.length - 1 ? '\n' : ''));
+      }
+      return lines;
+    }
+    function encryptVisual(plaintext, password) {
+      const key = deriveKey(password);
+      const rawLines = splitLinesKeepends(plaintext);
+      const indexed = rawLines.map((line, i) => ({ i, line }));
+      for (let i = indexed.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [indexed[i], indexed[j]] = [indexed[j], indexed[i]];
+      }
+      const shuffleMap = indexed.map(x => x.i);
+      const ctBlob = indexed.map(x => xorCrypt(new TextEncoder().encode(x.line), key));
+      const mapStr = shuffleMap.join(',');
+      const mapBytes = new TextEncoder().encode(mapStr);
+      const sepBytes = new TextEncoder().encode(SEPARATOR);
+      const ct = new Uint8Array([...mapBytes, ...sepBytes, ...ctBlob.flatMap(a => [...a])]);
+      return btoa(String.fromCharCode.apply(null, ct)).replace(/\+/g, '-').replace(/\//g, '_');
+    }
+    function decryptVisual(token, password) {
+      token = token.replace(/-/g, '+').replace(/_/g, '/');
+      const raw = atob(token);
+      const blob = new Uint8Array(raw.length);
+      for (let i = 0; i < raw.length; i++) blob[i] = raw.charCodeAt(i);
+      let sepIdx = -1;
+      for (let i = 0; i < blob.length; i++) { if (blob[i] === 124) { sepIdx = i; break; } }
+      if (sepIdx < 0) throw new Error('corruption is permanent. release attachment.');
+      const mapStr = new TextDecoder().decode(blob.subarray(0, sepIdx));
+      const ctBlob = blob.subarray(sepIdx + 1);
+      const shuffleMap = mapStr ? mapStr.split(',').map(Number) : [];
+      const key = deriveKey(password);
+      const ptBlob = xorCrypt(ctBlob, key);
+      const ptText = new TextDecoder().decode(ptBlob);
+      const segments = ptText.split(/\r?\n/);
+      const ptLines = [];
+      for (let k = 0; k < segments.length; k++) {
+        if (segments[k] !== '' || k < segments.length - 1)
+          ptLines.push(segments[k] + (k < segments.length - 1 ? '\n' : ''));
+      }
+      if (ptLines.length !== shuffleMap.length) throw new Error('corruption is permanent.');
+      const out = new Array(shuffleMap.length);
+      shuffleMap.forEach((origIdx, i) => { out[origIdx] = ptLines[i]; });
+      return out.join('');
+    }
+    const input = document.getElementById('encrypt-input');
+    const password = document.getElementById('encrypt-password');
+    const output = document.getElementById('encrypt-output');
+    document.getElementById('encrypt-btn').onclick = function() {
+      output.textContent = '';
+      const text = input.value.trim();
+      const pw = password.value;
+      if (!pw) { output.textContent = 'Enter a password.'; return; }
+      if (!text) { output.textContent = 'Enter text to encrypt.'; return; }
+      try { output.textContent = encryptVisual(text, pw); } catch (e) { output.textContent = e.message; }
+    };
+    document.getElementById('decrypt-btn').onclick = function() {
+      output.textContent = '';
+      const text = input.value.trim();
+      const pw = password.value;
+      if (!pw) { output.textContent = 'Enter a password.'; return; }
+      if (!text) { output.textContent = 'Enter a token to decrypt.'; return; }
+      try { output.textContent = decryptVisual(text, pw); } catch (e) { output.textContent = e.message; }
+    };
+
+    // Poem Frankensteiner
+    function randomlyReduceAndLineate(text, percentageToKeep) {
+      const words = text.trim().split(/\s+/).filter(Boolean);
+      if (words.length === 0) return '';
+      const k = Math.max(1, Math.floor(words.length * percentageToKeep / 100));
+      const shuffled = [...words].sort(() => Math.random() - 0.5);
+      const sampled = shuffled.slice(0, k);
+      const lines = [];
+      const minWords = 3, maxWords = 7;
+      let i = 0;
+      while (i < sampled.length) {
+        const remaining = sampled.length - i;
+        const lineLen = Math.min(remaining, minWords + Math.floor(Math.random() * (maxWords - minWords + 1)));
+        lines.push(sampled.slice(i, i + lineLen).join(' '));
+        i += lineLen;
+      }
+      return lines.join('\n');
+    }
+    const fsInput = document.getElementById('frankensteiner-input');
+    const fsPct = document.getElementById('frankensteiner-pct');
+    const fsPctVal = document.getElementById('frankensteiner-pct-val');
+    const fsOutput = document.getElementById('frankensteiner-output');
+    fsPct.oninput = function() { fsPctVal.textContent = fsPct.value; };
+    document.getElementById('frankensteiner-btn').onclick = function() {
+      const text = fsInput.value.trim();
+      if (!text) { fsOutput.textContent = 'Enter source text.'; return; }
+      const pct = parseInt(fsPct.value, 10);
+      fsOutput.textContent = randomlyReduceAndLineate(text, pct);
+    };
+  })();
+  </script>
 </body>
 </html>
