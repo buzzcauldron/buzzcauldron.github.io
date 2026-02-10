@@ -330,9 +330,9 @@
       </p>
       <nav>
         <a href="#about">About</a>
+        <a href="#teaching-philosophy">Teaching Philosophy</a>
         <a href="#encryption">Encryption Poem</a>
         <a href="#frankensteiner">Poem Frankensteiner</a>
-        <a href="#helpful-poem">Helpful Poem</a>
         <a href="#education">Education</a>
         <a href="#appointments">Appointments</a>
         <a href="#dh">Digital Humanities</a>
@@ -345,6 +345,22 @@
     </header>
 
     <main>
+      <section id="about">
+        <h2>About</h2>
+        <p>Lecturer in Writing and Communications. Medieval literature, digital humanities, and poetry. I integrate formal poetics with the philosophy of computer science and teach students to pair writing and research skills with technology.</p>
+        <p><a href="#teaching-philosophy">Teaching philosophy →</a></p>
+      </section>
+
+      <section id="teaching-philosophy" class="teaching-philosophy">
+        <h2>Teaching Philosophy</h2>
+        <p>My teaching philosophy rests on the supposition that humans remain relatively stable in the face of technological shifts—and that it is my responsibility to teach them not how to be a new kind of human but to be delightedly human in environments often hostile to that delight. I develop courses that explicitly address the clash of disciplinary intuitions, teaching students how to articulate expertise and the instincts of expertise for their collaborators—essential for effective teamwork between literary scholars, linguists, and computer scientists.</p>
+        <p>My teaching is shaped by the belief that computational techniques give humanists effective tools to solve problems they can well articulate. By thinking about documents as designed objects and language as variously capable of compression, I help students develop practical skills (e.g. what is a paragraph designed to do?) and metacognitive awareness (e.g. what tools do I use to determine a writer's motivation?) essential to interpreting a wide range of documents. My teaching is driven by a commitment to fostering a rapid and lasting sense of belonging that affirms students not in spite of their backgrounds, but because of them. Design and UX/UI students often remark that our discussion of Don Norman's <em>The Design of Everyday Things</em>—which we use to explore the affordances of verbal technologies—prepares them to engage more deeply with their major courses. CS students similarly value readings on the philosophy of coding: the DRY Principle (Don't Repeat Yourself) as a method for designing efficient papers, and orthogonality (independence of unrelated components) for structuring effective paragraphs.</p>
+        <p>I teach that poetry emphasizes structure and highly compressed language. Since compression is one of poetry's primary characteristics—it is, in a sense, communication condensed—it serves as a highly effective tool for teaching composition and efficiency. I have developed and offered ten iterations of "Poetry for Programmers," which integrates formal poetics with the philosophy of computer science. From the first class we look at a poem by Pittsburgh poet Cameron Barnett where the stanzas begin with 1 or 0 in an apparently random order. In each section I have taught, one CS student suddenly realizes the sequence is ASCII binary for "I"—the very thing the speaker says he could only manage to write. The whole poem is a sort of code that produces the speaker's self as they read. After contextualizing with historical readings about the Jacquard loom and woven RAM on the Apollo module, I show students that computation is not just a method of analysis but, like meter, is a very human activity. This opening lesson demonstrates that knowledge of binary has interpretive importance in contemporary poetic compositions, and that complex decision-making is similarly the result of a long series of small binary decisions.</p>
+        <p>Combining technical skills with an interpretive mindset is essential to distinguish propaganda from promise and hallucinations from meaningful analysis in an increasingly AI-driven world. My research on the impact of Glyph Machina's output for Large Language Models builds curricula on ethical AI development and historical data bias—examining how data collection from historically thin or skewed corpora affects the accuracy of LLM output. My work involves a field-defining Handwritten Character Recognition (HCR) model, utilizing CNNs connected to LSTMs in PyTorch.</p>
+        <h3>Mentoring</h3>
+        <p>My courses have been named in campus tours as positively engaging students' chosen majors. A mechanical engineering student wrote: "I gained more from this course than I ever would have expected from a mandatory first year college course. The improvement I observed in my ability to effectively analyze and digest texts, especially poetry, was remarkable for such a short period of time." A statistics/machine learning major: "I spent 7 years in a creative writing program and I think I appreciate poetry more now than I ever did during that." Two students from "Poetry for Programmers" have had papers selected for publication by the undergraduate writing journal. I have mentored students who learned Unity to write video games engaging medieval literature, developed ML models to predict food shortages, and critically implemented AI tools in research projects.</p>
+      </section>
+
       <section id="encryption">
         <h2>Encryption Poem</h2>
         <p>Encrypt or decrypt text with a visual cipher inspired by <a href="https://github.com/buzzcauldron/encryptionpoem/blob/main/cp9.2.py" target="_blank" rel="noopener">encryptionpoem</a>. Enter your text and a password.</p>
@@ -386,21 +402,6 @@ The object of poetry is confessedly to act upon the emotions; and therein is poe
           </div>
           <div id="frankensteiner-output" class="encrypt-output poem-output" aria-live="polite"></div>
         </div>
-      </section>
-
-      <section id="helpful-poem">
-        <h2>Helpful Poem</h2>
-        <p><em>Ones and Zeros</em> by Pittsburgh poet <a href="https://www.cameronbarnett.net/" target="_blank" rel="noopener">Cameron Barnett</a>—used in 76-106 Poetry for Programmers. Each stanza begins with a 1 or 0; the sequence spells the letter “I” in binary.</p>
-        <blockquote class="poem-display">
-          <p class="poem-stanza">0.<br>I wanted to write something<br>quaint and coded, but all<br>I could manage<br>was the letter<br>“I” on one side<br>of a page.</p>
-          <p class="poem-stanza">1.<br>My body is a sentence<br>waiting for its period.</p>
-          <p class="poem-stanza">0.<br>My mouth, a comma<br>stuck between breath<br>and what comes next.</p>
-          <p class="poem-stanza">0.<br>I am the ellipsis<br>at the end of my own story.</p>
-          <p class="poem-stanza">1.<br>I am the question mark<br>that never finds its answer.</p>
-          <p class="poem-stanza">0.<br>I am the semicolon<br>connecting what I cannot say.</p>
-          <p class="poem-stanza">0.<br>I am the colon<br>introducing what I refuse to name.</p>
-          <p class="poem-stanza">1.<br>I wanted to write something<br>quaint and coded, but all<br>I could manage<br>was the letter<br>“I” on one side<br>of a page.</p>
-        </blockquote>
       </section>
 
       <div class="cv">
@@ -561,13 +562,6 @@ The object of poetry is confessedly to act upon the emotions; and therein is poe
         </ul>
       </section>
       </div>
-
-      <section id="about" class="teaching-philosophy">
-        <h2>About</h2>
-        <p>I open my "Poetry for Programmers" course by pulling up the Visual Studio Code interface—dark mode, with neon highlights. In windows next to each other are two files: <details class="file-collapse"><summary>CP40-58m14b.xml</summary><div class="file-dropdown file-dropdown-xml"><div class="notebook-xml"><div class="nb-title">CP40-58m14b.xml</div><div class="nb-body"><div class="nb-line"><span class="nb-ln">1</span><span class="nb-tag">&lt;?xml</span> <span class="nb-attr">version=</span><span class="nb-val">'1.0'</span> <span class="nb-attr">encoding=</span><span class="nb-val">'UTF-8'</span><span class="nb-tag">?&gt;</span></div><div class="nb-line"><span class="nb-ln">2</span><span class="nb-tag">&lt;PcGts</span> <span class="nb-attr">xmlns=</span><span class="nb-val">"http://schema.primaresearch.org/..."</span><span class="nb-tag">&gt;</span></div><div class="nb-line"><span class="nb-ln">10</span><span class="nb-tag">&lt;Coords</span> <span class="nb-attr">points=</span><span class="nb-val">"66,44 66,43 115,41..."</span><span class="nb-tag">/&gt;</span></div><div class="nb-line"><span class="nb-ln">11</span><span class="nb-tag">&lt;TextEquiv&gt;</span></div><div class="nb-line"><span class="nb-ln">12</span>  <span class="nb-tag">&lt;Unicode&gt;</span><span class="nb-latin">Et quo ad capcionem predicti equi bene cognoscit quod eum cepit et juste quia dicit quod presentatum fuit in curia sua</span><span class="nb-tag">&lt;/Unicode&gt;</span></div><div class="nb-line"><span class="nb-ln">13</span><span class="nb-tag">&lt;/TextEquiv&gt;</span></div><div class="nb-line"><span class="nb-ln">...</span></div></div></div></div></details> and <details class="file-collapse"><summary>CP40-58m14b.jpg</summary><div class="file-dropdown"><img src="images/CP40-58m14b.jpg" alt="CP40-58m14b manuscript"></div></details>. The file on the left is a vibrant stack of coordinates interlaced with white text—all written in a language many students will eventually recognize as Latin. On the right is a just-shy-of-pixelated photograph of a tattered medieval manuscript, covered in arcane lines of script. I ask them to use the XML transcript to help them decipher the paleographical text. By the end of a few minutes, most have engaged in paleography for the first time. I tell them that digital tools and antique expertise have much to teach each other—the patterns of poetic structure can shape our minds as effectively as the patterns of digital interactions shape our online lives.</p>
-        <p>My teaching philosophy rests on the supposition that humans remain relatively stable in the face of technological shifts—and that it is my responsibility to teach them not how to be a new kind of human but to be delightedly human in environments often hostile to that delight. My teaching is shaped by the belief that computational techniques give humanists effective tools to solve problems they can well articulate. I teach that core coding concepts—the DRY Principle (Don't Repeat Yourself) and orthogonality—apply to writing efficient papers and structuring effective paragraphs; design and UX/UI students often remark that our discussion of Don Norman's <em>The Design of Everyday Things</em> prepares them to engage more deeply with their major courses. My teaching fosters a rapid sense of belonging that affirms students—from English, computer science, the arts, and other disciplines—because of their diverse backgrounds, not in spite of them.</p>
-        <p>I take a design-centric approach to pedagogy; each class asks for "user feedback" on the materials, order of concepts, and design of course websites and assignments. I have developed and offered ten iterations of a mini called 'Poetry for Programmers,' which integrates formal poetics with the philosophy of computer science. We look at <a href="#helpful-poem">a poem</a> by Pittsburgh poet Cameron Barnett where the stanzas all begin with 1 or 0—the ASCII binary for "I," the very coded subject of the poem. After contextualizing with historical readings about the Jacquard loom and woven RAM on the Apollo module, I show students that computation is not just a method of analysis but, like meter, is a very human activity. Combining technical skills with an interpretive mindset is essential to distinguish propaganda from promise and hallucinations from meaningful analysis in an increasingly AI-driven world. My work on Glyph Machina involves a field-defining Handwritten Character Recognition (HCR) model, utilizing CNNs connected to LSTMs in PyTorch—experience that helps me guide students in humanities-oriented AI/ML and ethical development.</p>
-      </section>
     </main>
 
     <footer>
