@@ -314,9 +314,18 @@
     .poem-output { font-family: var(--font-serif); font-size: 1.05rem; line-height: 1.8; }
     .poem-display { margin: 1rem 0; padding: 1rem 1.5rem; border-left: 3px solid var(--color-accent); font-family: var(--font-serif); font-style: italic; }
     .poem-stanza { margin: 0.75rem 0; line-height: 1.7; }
-    .flicker-section { background: #000; color: #fff; padding: 1.5rem; margin: 2rem 0; font-family: ui-monospace, 'SF Mono', monospace; line-height: 1.8; border-radius: 6px; }
+    .flicker-section {
+      font-family: var(--font-serif);
+      font-size: 1.125rem;
+      line-height: 1.7;
+      color: var(--color-text);
+      margin: 1rem 0;
+      height: 28em;
+      overflow: hidden;
+      contain: layout;
+    }
     .flicker-line { margin: 0.5rem 0; }
-    .flicker-word { display: inline-block; margin-right: 0.35rem; }
+    .flicker-word { display: inline-block; margin-right: 0.25em; }
     .flicker-word:hover { opacity: 1 !important; }
 
     @media (min-width: 600px) {
