@@ -134,6 +134,44 @@
 
     nav a:hover { color: var(--color-accent); }
 
+    .cv-download-wrap {
+      text-align: right;
+      margin-top: 1rem;
+    }
+    .cv-download {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      background: var(--color-accent);
+      color: #fff;
+      text-decoration: none;
+      border: none;
+    }
+    .cv-download:hover { opacity: 0.9; color: #fff; }
+
+    .back-to-top {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      padding: 0.35rem 0.65rem;
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      background: var(--color-accent);
+      color: #fff;
+      text-decoration: none;
+      border: none;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s, visibility 0.2s;
+      z-index: 100;
+    }
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    .back-to-top:hover { opacity: 0.9; color: #fff; }
+
     h2 {
       font-family: var(--font-sans);
       font-weight: 600;
@@ -344,6 +382,7 @@
       <nav>
         <a href="#about">About</a>
         <a href="#teaching-philosophy">Teaching Philosophy</a>
+        <a href="#courses">Courses</a>
         <a href="#encryption">Encryption Poem</a>
         <a href="#frankensteiner">Poem Frankensteiner</a>
         <a href="#education">Education</a>
@@ -355,6 +394,9 @@
         <a href="#presentations">Presentations</a>
         <a href="#skills">Skills</a>
       </nav>
+      <div class="cv-download-wrap">
+        <a href="cv.pdf" class="cv-download" download>Download CV</a>
+      </div>
     </header>
 
     <main>
@@ -383,6 +425,49 @@
         <p>Combining technical skills with an interpretive mindset is essential to distinguish propaganda from promise and hallucinations from meaningful analysis in an increasingly AI-driven world. My research on the impact of Glyph Machina's output for Large Language Models builds curricula on ethical AI development and historical data bias—examining how data collection from historically thin or skewed corpora affects the accuracy of LLM output. My work involves a field-defining Handwritten Character Recognition (HCR) model, utilizing CNNs connected to LSTMs in PyTorch.</p>
         <h3>Mentoring</h3>
         <p>My courses have been named in campus tours as positively engaging students' chosen majors. A mechanical engineering student wrote: "I gained more from this course than I ever would have expected from a mandatory first year college course. The improvement I observed in my ability to effectively analyze and digest texts, especially poetry, was remarkable for such a short period of time." A statistics/machine learning major: "I spent 7 years in a creative writing program and I think I appreciate poetry more now than I ever did during that." Two students from "Poetry for Programmers" have had papers selected for publication by the undergraduate writing journal. I have mentored students who learned Unity to write video games engaging medieval literature, developed ML models to predict food shortages, and critically implemented AI tools in research projects.</p>
+      </section>
+
+      <section id="courses" class="cv-section">
+        <h2>Courses</h2>
+
+        <h3>Poetry for Programmers</h3>
+        <p>In this course, students will read ancient and modern poetry with at least three aims: 1. What stories do poems tell? 2. How do the formal features of the poems make them operate? 3. How can those features be modeled? Students will learn the history and operation of linguistic strategies like metaphor, rhyme, and alliteration. Readings may include selections from Pope, Walcott, Sappho, Robert Hayden, Marianne Moore, Homer, and investigations into contemporary working poets. We'll also apprehend some critical conversations of literary analysis: how race and poetics interact, how formal features shape thought, and how canonicity factors into form. We'll also look at the elements that coding shares with poetic language—from the existence of coding languages to terms like concatenation, compilation, for loops—to consider how studying the formal features of poetic composition can additionally inform human-computer interaction and how coding knowledge can inform and expand forms of poetic analysis.</p>
+        <p>Students will learn select critical theory and its application, write formal and argumentative essays. Opportunities to experiment with poetic composition, generative projects, and companion coding will abound as well.</p>
+
+        <h3>Hunger: The Politics and Philosophy of Pangs</h3>
+        <p>Is hunger a feeling? Is it a physical state? How much of our human activity is oriented around preventing hunger? How does hunger also reveal inequality? How do desire and appetite relate to hunger? Is hunger a positive state or a lack of food? We'll discuss how hunger plays an important role in our lives, in our communities, and how we can develop a coherent approach to questions of hunger and how developing such an approach can transform the way we interact with our goals, our communities, and even parts of ourselves. As early as the middle ages, poets divided society into 'winners,' i.e. producers and 'wasters,' i.e. consumers. In recent years, hunger provides a locus for social commentary in Tommy Pico's poetry and Roxane Gay's memoirs. And the problem is local, too: Pittsburgh has the highest levels of food insecurity among similarly-sized cities. Nearly 1 in 5 residents of Pittsburgh live in food insecurity – a much higher rate than national rates. In this 'foodie city' in one of the most stupendously wealthy countries in the world, why are people going hungry? In this course, students will begin to answer these questions through a variety of individual and collaborative research projects. Students will learn to analyze texts for their arguments, synthesize their ideas, and learn the skills needed to participate in a scholarly conversation. After reading and analyzing a variety of arguments on this issue, students will write a formal research proposal and paper by drawing upon their knowledge from this class and their own disciplines.</p>
+
+        <h3>Erotic Ecologies II: Bent Gardens and Unnatural Nature</h3>
+        <p>This course shifts the focus from "nature" as a site of generation to its perception as interference in human decision making, love, and happiness. Storms arise and magic abounds in <em>Sir Orfeo</em>, <em>The Winter's Tale</em>, and <em>The Tempest</em>, and selections from Milton's <em>Paradise Lost</em> will cycle back to Genesis. We'll end by examining lost love and frustration in the natural world with selections from Wordsworth's Preludes, Byron's "Darkness," Saint-Exupéry's <em>The Little Prince</em>, Jos Charles's <em>Feeld</em>, Tommy Pico's <em>Feed</em>, and Robin Wall Kimmerer's <em>Gathering Moss</em>.</p>
+        <p>We're in a strange position in relationship to nature these days – the median American farm is not economically self-sustaining, we have national parks pristinely preserved for the middle to upper classes and pollution on a massive scale in the places that we live. Lawn grass is our primary crop, we make it useless with pesticides, and foragers and gardeners are considered niche and kooky. Meanwhile, we have massive changes and ensuing disagreements worldwide about sexuality – what is 'natural,' what is 'good,' and what forms of human sexuality ought to be politically punished or protected. We're not even begin to solve these problems or even circumscribe them, but it's the setting in which we'll look at some of the oldest extant written stories, from medieval literature and philosophy, all of which are strongly attuned both to eros and to the natural world in which they live.</p>
+
+        <h3>Erotic Ecologies I: Literary Gardens of Love</h3>
+        <p>In this course, students will read the creation accounts from Gilgamesh, the Qur'an, Genesis, and Hesiod's Theogeny. From these accounts of clay to flesh, we'll turn to Ovid's mythologies of deified streams and rivers, their offspring, and how the marriage of the divine and the dirt yields human beings in the ancient world. In Genesis, the natural world provides temptations, and in Song of Songs, the fruit for erotic metaphor as it does for hundreds of years in the poems of Rumi and medieval English lyrics. The first semester will end in the Middle Ages, where a green warrior spawned, it seems, from the natural world itself provides terrifying ethical and sexual ambiguities in <em>Sir Gawain and the Green Knight</em>.</p>
+
+        <h3>Medieval Dreams and Modern Insomnia</h3>
+        <p>In this course, trans-historical accounts of sleeping from the ancient world to now and theories of dreaming will serve as the frame for the dream-visions of the Middle Ages and contemporary tales of insomnia, including <em>Piers Plowman</em>, Chaucer's <em>The Nun's Priest's Tale</em>, <em>Pearl</em> as well as <em>Cashback</em>, <em>Taxi Driver</em>, <em>La science des rêves</em>, <em>After Dark</em>, <em>Fight Club</em>, <em>In Search of Lost Time</em>, <em>Sleep</em>, <em>Insomniac Dreams: Experiments with Time</em> by Vladimir Nabokov, and many more. Do these stories have something in common? What do the dreams of the Middle Ages have to teach us about our own sleepless age? What can we do with the liminal space between waking and sleeping – is it a waste of life or a door to another world?</p>
+        <p>We'll split time in this course between medieval literature written in Old English and Middle English and films produced within the last few decades. All the works we'll study involve dreaming and/or not sleeping – I've paired them in part because these are two artistic (sub?)genres I find particularly interesting. More than that, I have wondered about the strange resonances between the late Middle Ages and postmodernity – we'll be together on the front lines of figuring whether that resonance is incidental or substantial. By the end of the course, I want you to have an initial sense of what medieval dream-visions are and are doing and a sense for the role of insomnia in those visions as well as the modern visions portrayed in films.</p>
+
+        <h3>Writing and Community Engagement: The Lenses in Our Lives</h3>
+        <p>Since Nero squinted through gems to watch gladiators die, artificial lenses have changed the way we see the world; 'the lens' is a common metaphor used to compare ideologies or to interpret art with a philosophy. This course will investigate how lenses came about and how the widespread presence of lenses (in cameras, the eye) started to shape the world around us. We'll consider the implications of privileging vision over hearing and touch; explore the strangeness of lenses, which distort in order to clarify; read ancient, medieval, and modern accounts of lens-making and use, fiction in which a lens or camera is particularly relevant, philosophy and theory which examines lenses, and study films and photographs with the insights gained along the way.</p>
+
+        <h3>The Purpose of Education, or, What are we doing here?</h3>
+        <p>Much is expected of you, college freshmen. Amidst the expectations for gaining future employment, appearing successful, and forming community, it can be easy to lose a sense of place. This class, in its humble way, is designed to provide some of that sense by answering two questions: "What is an intellectual life?" and "How does someone develop one?". Students who are willing to think seriously and earnestly are invited to participate; ideally, a wide variety of majors will attend. The focus of the class is on the arts: paintings, sculpture, literature, film, photography, and music will all be objects of engagement, with special emphasis on literature, essays, and film.</p>
+
+        <h3>Games and Contests: Writing about Place and Motion</h3>
+        <p>Athletic contests have served as symbols, stories, and structure for nearly as long as literature has been written down. From the Olympic champions Pindar set among the gods to the Aeneid's boat races to Henry V's tennis metaphor to David Foster Wallace's essays to the Psalms to the old baseball-loving pastor of Marilynne Robinson's <em>Gilead</em> and the broken bodies of B.H. Fairchild's Midwest outfielders, sports serve up striking images, memorable characters, and intensely emotional moments.</p>
+        <p>In this class, we'll read works entire and excerpted, literature, essays, and theory all focusing on athletes or analogies of sport. We'll ask questions about the relationship of athleticism and literature, those who write and those who play.</p>
+
+        <h3>Advanced Strategies in Rhetoric and Research</h3>
+        <p>As you may have noticed, this class is titled 'strategies in rhetoric and research' which accurately implies that we will be concerning ourselves closely with both rhetoric and research. Before we can have strategies at all, let alone advanced strategies, we'll need to find out what rhetoric and research are, what they involve, and how they are used in a variety of contexts. With this in mind, you will work in several media, several formats of those media, and choosing the best presentation for the rhetorical task at hand. What will this look like? You'll be blogging, writing, perhaps vlogging, and speaking, all before audiences and all focusing around a single area of concern.</p>
+        <p>Upon successful completion of this course, you will be able to demonstrate:</p>
+        <ul>
+          <li>The ability to analyze a rhetorical situation (audience, context, goal, etc.) and respond productively.</li>
+          <li>The ability to explain and defend the decisions made while composing.</li>
+          <li>A familiarity with a number of different composition methods including oral presentations, video production, and—of course—written papers.</li>
+          <li>An understanding of a basic research methods, library and otherwise.</li>
+        </ul>
+        <p>The goal of this class, briefly, is that you all take steps toward becoming eloquent human beings.</p>
       </section>
 
       <section id="encryption">
@@ -589,8 +674,10 @@ The object of poetry is confessedly to act upon the emotions; and therein is poe
     </main>
 
     <footer>
-      <p>Last updated: January 16, 2026</p>
+      <p>Last updated: February 9, 2026</p>
     </footer>
+
+    <a href="#" class="back-to-top" id="back-to-top" aria-label="Return to top">↑ Top</a>
   </div>
 
   <script>
@@ -752,6 +839,18 @@ The object of poetry is confessedly to act upon the emotions; and therein is poe
       const pct = parseInt(fsPct.value, 10);
       fsOutput.textContent = randomlyReduceAndLineate(text, pct);
     };
+
+    // Back to top: show when scrolled, scroll to top on click
+    const backToTop = document.getElementById('back-to-top');
+    backToTop.addEventListener('click', function(e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    function toggleBackToTop() {
+      backToTop.classList.toggle('visible', window.scrollY > 300);
+    }
+    window.addEventListener('scroll', toggleBackToTop);
+    toggleBackToTop();
 
     // Flickering text: alternate between original and base64
     const flickerWords = document.querySelectorAll('.flicker-word');
