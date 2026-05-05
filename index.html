@@ -107,18 +107,73 @@
       padding: 2rem 1.5rem;
     }
 
-    header {
+    header.site-header {
       border-bottom: 1px solid var(--color-border);
       padding-bottom: 2rem;
       margin-bottom: 2.5rem;
     }
 
-    h1 {
+    .header-identity {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.75rem 1.25rem;
+    }
+
+    .header-identity h1 {
+      flex: 1 1 auto;
+      min-width: min(12rem, 100%);
+      margin: 0;
+    }
+
+    .cv-download {
+      flex: 0 0 auto;
+      display: inline-block;
+      padding: 0.45rem 0.85rem;
       font-family: var(--font-sans);
+      font-size: 0.8rem;
       font-weight: 600;
-      font-size: 1.75rem;
-      letter-spacing: 0.02em;
-      margin: 0 0 0.5rem 0;
+      background: var(--color-accent);
+      color: #fff;
+      text-decoration: none;
+      border: none;
+    }
+    .cv-download:hover { opacity: 0.9; color: #fff; }
+
+    .site-contact {
+      margin: 0.65rem 0 0 0;
+      font-style: normal;
+    }
+
+    .site-nav {
+      margin-top: 1.25rem;
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+    }
+
+    .site-nav .nav-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 1.25rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .site-nav .nav-list li {
+      margin: 0;
+    }
+
+    .site-nav .nav-list a {
+      display: inline-block;
+      color: var(--color-text-muted);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .site-nav .nav-list a:hover {
+      color: var(--color-accent);
     }
 
     .contact {
@@ -140,35 +195,12 @@
     }
     a:hover { text-decoration: underline; }
 
-    nav {
-      margin-top: 1.5rem;
+    h1 {
       font-family: var(--font-sans);
-      font-size: 0.875rem;
+      font-weight: 600;
+      font-size: 1.75rem;
+      letter-spacing: 0.02em;
     }
-
-    nav a {
-      color: var(--color-text-muted);
-      text-decoration: none;
-      margin-right: 1.5rem;
-    }
-
-    nav a:hover { color: var(--color-accent); }
-
-    .cv-download-wrap {
-      text-align: right;
-      margin-top: 1rem;
-    }
-    .cv-download {
-      display: inline-block;
-      padding: 0.25rem 0.6rem;
-      font-family: var(--font-sans);
-      font-size: 0.75rem;
-      background: var(--color-accent);
-      color: #fff;
-      text-decoration: none;
-      border: none;
-    }
-    .cv-download:hover { opacity: 0.9; color: #fff; }
 
     .back-to-top {
       position: fixed;
@@ -423,32 +455,34 @@
 </head>
 <body>
   <div class="container">
-    <header>
-      <h1>Seth Strickland</h1>
-      <p class="contact">
-        <a href="mailto:sstrickl@andrew.cmu.edu">sstrickl@andrew.cmu.edu</a> · H +1 607 288 2604 · Instagram <a href="https://www.instagram.com/sethcoastisthebestcoast/">@sethcoastisthebestcoast</a> · <a href="https://buzzcauldron.github.io">buzzcauldron</a>
-      </p>
-      <nav>
-        <a href="#about">About</a>
-        <a href="#teaching-philosophy">Teaching Philosophy</a>
-        <a href="#courses">Courses</a>
-        <a href="#encryption">Encryption Poem</a>
-        <a href="#frankensteiner">Poem Frankensteiner</a>
-        <a href="#research-party">Research Party</a>
-        <a href="#education">Education</a>
-        <a href="#appointments">Appointments</a>
-        <a href="#dh">Digital Humanities</a>
-        <a href="#consulting">Consulting</a>
-        <a href="#publications">Publications</a>
-        <a href="#lectures">Lectures</a>
-        <a href="#awards">Awards</a>
-        <a href="#presentations">Presentations</a>
-        <a href="#service">Service</a>
-        <a href="#skills">Skills</a>
-      </nav>
-      <div class="cv-download-wrap">
-        <a href="cv.pdf" class="cv-download" download>Download CV</a>
+    <header class="site-header">
+      <div class="header-identity">
+        <h1>Seth Strickland</h1>
+        <a href="cv.pdf" class="cv-download" download aria-label="Download curriculum vitae PDF">Download CV</a>
       </div>
+      <address class="contact site-contact">
+        <a href="mailto:sstrickl@andrew.cmu.edu">sstrickl@andrew.cmu.edu</a> · H +1 607 288 2604 · Instagram <a href="https://www.instagram.com/sethcoastisthebestcoast/">@sethcoastisthebestcoast</a> · <a href="https://buzzcauldron.github.io">buzzcauldron</a>
+      </address>
+      <nav class="site-nav" aria-label="Page sections">
+        <ul class="nav-list">
+          <li><a href="#about">About</a></li>
+          <li><a href="#teaching-philosophy">Teaching Philosophy</a></li>
+          <li><a href="#courses">Courses</a></li>
+          <li><a href="#encryption">Encryption Poem</a></li>
+          <li><a href="#frankensteiner">Poem Frankensteiner</a></li>
+          <li><a href="#research-party">Research Party</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#appointments">Appointments</a></li>
+          <li><a href="#dh">Digital Humanities</a></li>
+          <li><a href="#consulting">Consulting</a></li>
+          <li><a href="#publications">Publications</a></li>
+          <li><a href="#lectures">Lectures</a></li>
+          <li><a href="#awards">Awards</a></li>
+          <li><a href="#presentations">Presentations</a></li>
+          <li><a href="#service">Service</a></li>
+          <li><a href="#skills">Skills</a></li>
+        </ul>
+      </nav>
     </header>
 
     <main>
