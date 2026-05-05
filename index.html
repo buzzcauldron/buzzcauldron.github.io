@@ -372,6 +372,21 @@
     .viz-header, .viz-msg { color: var(--color-accent); }
     .viz-block { margin: 0.5rem 0; white-space: pre-wrap; word-break: break-all; }
     .viz-token { display: block; margin-top: 0.5rem; word-break: break-all; }
+    .research-party-tool > p.contact {
+      margin: 0 0 0.75rem 0;
+    }
+    .research-party-embed {
+      border: 1px solid var(--color-border);
+      background: #fff;
+      overflow: hidden;
+    }
+    .research-party-embed iframe {
+      display: block;
+      width: 100%;
+      height: min(70vh, 640px);
+      border: 0;
+    }
+
     .poem-output { font-family: var(--font-serif); font-size: 1.05rem; line-height: 1.8; }
     .poem-display { margin: 1rem 0; padding: 1rem 1.5rem; border-left: 3px solid var(--color-accent); font-family: var(--font-serif); font-style: italic; }
     .poem-stanza { margin: 0.75rem 0; line-height: 1.7; }
@@ -555,6 +570,19 @@ The object of poetry is confessedly to act upon the emotions; and therein is poe
 
       <p class="section-sep">==//==</p>
 
+      <section id="research-party">
+        <h2>Research Party</h2>
+        <p>Drop a bibliography, compile citation and social maps, read coverage and synthesis, and ask questions over your corpus—in the browser. Source: <a href="https://github.com/buzzcauldron/research-party" target="_blank" rel="noopener">research-party</a> on GitHub.</p>
+        <div class="encryption-tool research-party-tool">
+          <p class="contact"><a href="https://research-party.com/" target="_blank" rel="noopener">Open research-party.com in a new tab</a> if the embed is slow or blocked.</p>
+          <div class="research-party-embed">
+            <iframe src="https://research-party.com/" title="Research Party" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </section>
+
+      <p class="section-sep">==//==</p>
+
       <div class="cv">
       <section id="education" class="cv-section">
         <h2>Education</h2>
@@ -609,9 +637,9 @@ The object of poetry is confessedly to act upon the emotions; and therein is poe
 
       <section id="dh" class="cv-section">
         <h2>Digital Humanities & Public Scholarship</h2>
-        <h3 id="research-party">Research Party <span class="date">2025 – Present</span></h3>
+        <h3>Research Party <span class="date">2025 – Present</span></h3>
         <p class="role">Project</p>
-        <ul><li>Open-source workspace for compiling bibliography networks, coverage maps, synthesis notes, and exploratory research Q&A from your citation pile. <a href="https://research-party.com/" target="_blank" rel="noopener">research-party.com</a> · <a href="https://github.com/buzzcauldron/research-party" target="_blank" rel="noopener">GitHub</a></li></ul>
+        <ul><li>Workspace for compiling bibliography networks, coverage maps, synthesis, and research Q&A. <a href="https://research-party.com/" target="_blank" rel="noopener">research-party.com</a> · <a href="https://github.com/buzzcauldron/research-party" target="_blank" rel="noopener">GitHub</a> · <a href="#research-party">Try it on this page</a></li></ul>
 
         <h3>Carnegie Mellon University – Digital Humanities Lab <span class="date">2025 – Present</span></h3>
         <p class="role">Co-Founder · Pittsburgh, PA</p>
