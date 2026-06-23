@@ -1,40 +1,41 @@
-% cv-tools.tex — paste into Alt CV source or: \input{cv-tools}
-% Requires: \usepackage{hyperref} (for \href)
-% Last synced with buzzcauldron.github.io #dh-tools — May 2026
+% cv-tools.tex — insert inside Digital Humanities & Public Scholarship (after Text Mining Initiative)
+% Usage in main CV: \input{cv-tools}
+% Matches: enumitem bullets, \href, \subsection* (same preamble as main CV)
 
-\section{Software \& Tools}
-
-\begin{itemize}
-  \item \textbf{historical-ocr}
-    (\href{https://github.com/buzzcauldron/historical-ocr}{GitHub}) —
+\subsection*{Software \& Tools}
+\vspace{0.25em}
+\begin{itemize}[leftmargin=1.5em, nosep, label=\small\textbullet]
+    \item \textbf{historical-ocr}
+    (\href{https://github.com/buzzcauldron/historical-ocr}{GitHub}) ---
     Self-contained orchestrator for computational-ready text from historical sources:
     print OCR (Tesseract), PDF/IIIF ingest, protocol YAML $\rightarrow$ TEI, and optional
-    hooks to transcription-shell and type-case fingerprint backends.
+    hooks to \texttt{transcription-shell} and \texttt{typebox-fingerprinter}.
 
-  \item \textbf{transcription-shell}
-    (\href{https://github.com/buzzcauldron/transcription-shell}{GitHub}) —
+    \item \textbf{transcription-shell}
+    (\href{https://github.com/buzzcauldron/transcription-shell}{GitHub}) ---
     Lineation $\rightarrow$ PageXML $\rightarrow$ LLM transcription following the
     \href{https://github.com/buzzcauldron/transcription-protocol}{Academic Handwriting Transcription Protocol};
     GUI and CLI with Glyph Machina, Kraken, or custom mask lineation; validated YAML output.
 
-  \item \textbf{typebox-fingerprinter}
-    (\href{https://github.com/buzzcauldron/typebox-fingerprinter}{GitHub}) —
+    \item \textbf{typebox-fingerprinter}
+    (\href{https://github.com/buzzcauldron/typebox-fingerprinter}{GitHub}) ---
     Letter-height and box-level \emph{sizing} fingerprints for early English print (c.\,1470--1700):
     Kraken line segmentation, height-ratio filtering ($\geq 0.55\times$ median line height),
     14 distributional sizing channels (glyph height, ink area, aspect ratio, leading, \ldots),
     then ResNet glyph-encoder matching to attribute imprints to physical type cases via
     Print \& Probability.
 
-  \item \textbf{Research Party}
+    \item \textbf{Research Party}
     (\href{https://research-party.com/}{research-party.com} \textbar{}
-    \href{https://github.com/buzzcauldron/research-party}{GitHub}) —
+    \href{https://github.com/buzzcauldron/research-party}{GitHub}) ---
     Bibliographic analysis platform: compile role and social maps, coverage, synthesis, and
     exploratory Q\&A over a citation corpus; integrates \texttt{bib-ocr} PDF citation ingest.
 
-  \item \textbf{New World XML} (visual Page XML editor)
-    (\href{https://github.com/buzzcauldron/new-world-xml}{GitHub};
-    lineage \href{https://github.com/buzzcauldron/visual-page-editor}{visual-page-editor}) —
-    Electron desktop fork of \texttt{nw-page-editor}: interactive Page XML / ALTO editing on
-    manuscript images; native File menu (Open, Save, Save As, Print), Tools drawer and
-    edit-mode UX; Latin abbreviation expansion workflow for diplomatic transcriptions.
+    \item \textbf{visual-page-editor}
+    (\href{https://github.com/buzzcauldron/visual-page-editor}{GitHub};
+    based on \href{https://github.com/mauvilsa/nw-page-editor}{nw-page-editor}) ---
+    Visual Page XML / ALTO editor for ground truth on scanned documents (omni:us, PRImA, TET, Poppler);
+    NW.js desktop and web variants with live feedback and keyboard shortcuts. Maintained for the Glyph Machina
+    transcription workflow, including Latin abbreviation expansion (\href{https://github.com/buzzcauldron/expand-diplomatic}{expand-diplomatic}).
 \end{itemize}
+\vspace{0.65em}
