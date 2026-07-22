@@ -9,7 +9,14 @@
     (\href{https://github.com/buzzcauldron/historical-ocr}{GitHub}) ---
     Self-contained orchestrator for computational-ready text from historical sources:
     print OCR (Tesseract), PDF/IIIF ingest, protocol YAML $\rightarrow$ TEI, and optional
-    hooks to \texttt{transcription-shell} and \texttt{typebox-fingerprinter}.
+    hooks to \texttt{transcription-shell} and \texttt{manuscript-fingerprint}.
+
+    \item \textbf{strigil}
+    (\href{https://github.com/buzzcauldron/strigil}{GitHub}) ---
+    Archival web scraper: high-quality PDFs, text, and images from digital-collection sources
+    (NYPL Digital Collections, CONTENTdm, IIIF manifests, HathiTrust), stored locally with
+    archival-quality image filtering and optional JS rendering (Playwright/Chromium) for
+    dynamic pages.
 
     \item \textbf{transcription-shell}
     (\href{https://github.com/buzzcauldron/transcription-shell}{GitHub}) ---
@@ -17,8 +24,7 @@
     \href{https://github.com/buzzcauldron/transcription-protocol}{Academic Handwriting Transcription Protocol};
     GUI and CLI with Glyph Machina, Kraken, or custom mask lineation; validated YAML output.
 
-    \item \textbf{typebox-fingerprinter}
-    (\href{https://github.com/buzzcauldron/typebox-fingerprinter}{GitHub}) ---
+    \item \textbf{manuscript-fingerprint} ---
     Letter-height and book-level sizing tool for early English print (c.\,1470--1700):
     Kraken line segmentation, height-ratio filtering ($\geq 0.55\times$ median line height),
     14 distributional sizing channels (glyph height, ink area, aspect ratio, leading, \ldots),
@@ -26,16 +32,24 @@
     Print \& Probability.
 
     \item \textbf{Research Party}
-    (\href{https://research-party.com/}{research-party.com} \textbar{}
-    \href{https://github.com/buzzcauldron/research-party}{GitHub}) ---
+    (\href{https://research-party.com/}{research-party.com}) ---
     Bibliographic analysis platform: compile role and social maps, coverage, synthesis, and
     exploratory Q\&A over a citation corpus; integrates \texttt{bib-ocr} PDF citation ingest.
 
-    \item \textbf{visual-page-editor}
-    (\href{https://github.com/buzzcauldron/visual-page-editor}{GitHub};
-    based on \href{https://github.com/mauvilsa/nw-page-editor}{nw-page-editor}) ---
-    Visual Page XML / ALTO editor for ground truth on scanned documents (omni:us, PRImA, TET, Poppler);
-    NW.js desktop and web variants with live feedback and keyboard shortcuts. Maintained for the Glyph Machina
-    transcription workflow, including Latin abbreviation expansion (\href{https://github.com/buzzcauldron/expand-diplomatic}{expand-diplomatic}).
+    \item \textbf{new-world-xml} (\texttt{nwxml})
+    (\href{https://github.com/buzzcauldron/new-world-xml}{GitHub}) ---
+    Maintained visual Page XML / ALTO editor for ground truth on scanned documents;
+    Electron desktop app, successor to
+    \href{https://github.com/buzzcauldron/visual-page-editor}{visual-page-editor}
+    (itself based on \href{https://github.com/mauvilsa/nw-page-editor}{nw-page-editor}).
+    Used in the Glyph Machina transcription workflow, including Latin abbreviation expansion
+    (\href{https://github.com/buzzcauldron/expand-diplomatic}{expand-diplomatic}).
+
+    \item \textbf{reasoning-stylometry}
+    (\href{https://github.com/buzzcauldron/reasoning-stylometry}{GitHub}) ---
+    R/\texttt{stylo} pipeline underpinning \textit{Proofs \& Reasons}: classifies mathematical
+    \emph{reasoning style} (spatial/visual vs.\ symbolic/derivational) independently from
+    \emph{content} (geometric vs.\ algebraic) across JAMS papers, via \texttt{stylo::classify} /
+    \texttt{rolling.classify}, leave-one-out cross-validation, and Delta distance tables.
 \end{itemize}
 \vspace{0.65em}
