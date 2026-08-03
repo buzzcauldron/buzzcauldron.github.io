@@ -263,11 +263,13 @@
     .cv-section:first-child h2 { margin-top: 0; }
     .cv code,
     .tool-card code,
-    .tools-latex-note code {
-      font-family: inherit;
-      font-size: inherit;
+    .tools-latex-note code,
+    .cv-section :is(code, kbd, samp, tt, pre) {
+      font: inherit;
+      letter-spacing: inherit;
       background: none;
       padding: 0;
+      border: 0;
     }
     .cv-section h3 {
       display: flex;
@@ -298,6 +300,23 @@
       position: absolute;
       left: -1em;
       color: var(--color-accent);
+    }
+    .cv-section {
+      font-family: var(--font-serif);
+    }
+    .cv-section ul li a,
+    .cv-section p a {
+      font: inherit;
+      letter-spacing: inherit;
+      color: var(--color-text);
+      text-decoration: underline;
+      text-decoration-color: var(--color-border);
+      text-underline-offset: 0.15em;
+    }
+    .cv-section ul li a:hover,
+    .cv-section p a:hover {
+      color: var(--color-accent);
+      text-decoration-color: var(--color-accent);
     }
 
     .teaching-philosophy p {
@@ -749,7 +768,7 @@ The object of poetry is confessedly to act upon the emotions; and therein is poe
         <ul>
           <li>Deployed an open-source pipeline integrating handwritten text recognition with LLM diplomatic correction: <a href="https://github.com/buzzcauldron/strigil" target="_blank" rel="noopener">strigil</a> (IIIF ingest) → Kraken lineation → r7 HTR model (~351,000 training lines from CREMMA, HTRomance, Eutychès, and related corpora; 3.07% character error rate on held-out CREMMA validation) → Ollama/Anthropic/Gemini correction passes via <a href="https://github.com/buzzcauldron/transcription-protocol" target="_blank" rel="noopener">transcription-protocol</a> and <a href="https://github.com/buzzcauldron/transcription-shell" target="_blank" rel="noopener">transcription-shell</a>.</li>
           <li>Building a 54-manuscript Carolingian computus library indexed from the <a href="https://computus.huma-num.fr/" target="_blank" rel="noopener">Computus in the Carolingian Age (CitCA)</a> catalogue (8th–12th c.; principally Frankish and Rhenish scriptoria). As of July 2026, 15 witnesses acquired (4,554 page images) via IIIF from e-codices (St. Gallen, Bern), Wellcome, NYPL, and related repositories; draft diplomatic transcriptions in progress.</li>
-          <li>Companion stylometry: medieval-proof (Burrows Delta + rolling-entropy genre-shift detection, 13 genre classes) applied to NYPL Computus Text 3 (April 2026) and a Wellcome computistical miscellany; <a href="https://github.com/buzzcauldron/reasoning-stylometry" target="_blank" rel="noopener">reasoning-stylometry</a> extends Burrows Delta to test whether a mathematics paper's subject and reasoning style classify as independent axes.</li>
+          <li>Companion stylometry: <em>medieval-proof</em> (Burrows Delta + rolling-entropy genre-shift detection, 13 genre classes) applied to NYPL Computus Text 3 (April 2026) and a Wellcome computistical miscellany; <em>reasoning-stylometry</em> extends Burrows Delta to test whether a mathematics paper's subject and reasoning style classify as independent axes (<a href="https://github.com/buzzcauldron/reasoning-stylometry" target="_blank" rel="noopener">GitHub</a>).</li>
         </ul>
 
         <h3>Research Party <span class="date">2025 – Present</span></h3>
