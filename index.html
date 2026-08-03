@@ -699,7 +699,9 @@ The object of poetry is confessedly to act upon the emotions; and therein is poe
         <h2>Academic Appointments</h2>
         <h3>Proofs &amp; Reasons <span class="date">May 2026 – Present</span></h3>
         <p class="role">Researcher · Carnegie Mellon University</p>
-        <ul><li>Combines recent advances in natural language processing with CMU's growing leadership in digital humanities to provide the first window onto the long-timescale development of mathematical imagination and the ways calculational techniques hybridize with a broader spiritual and mystical imaginary. <a href="https://proofsandreasons.io/" target="_blank" rel="noopener">proofsandreasons.io</a></li></ul>
+        <ul>
+          <li>Research on mathematical imagination and the hybridization of calculational technique with spiritual and mystical cognition via a multi-century corpus of medieval <em>computus</em> manuscripts. <a href="https://proofsandreasons.io/" target="_blank" rel="noopener">proofsandreasons.io</a> · <a href="#proofs-computus">pipeline &amp; corpus</a></li>
+        </ul>
 
         <h3>Carnegie Mellon University <span class="date">Aug 2023 – Present</span></h3>
         <p class="role">Lecturer – Writing and Communications · Pittsburgh, PA</p>
@@ -733,6 +735,15 @@ The object of poetry is confessedly to act upon the emotions; and therein is poe
 
       <section id="dh" class="cv-section">
         <h2>Digital Humanities & Public Scholarship</h2>
+
+        <h3 id="proofs-computus">Proofs &amp; Reasons — Computus Corpus <span class="date">2026</span></h3>
+        <p class="role">HTR, stylometry, and diplomatic transcription</p>
+        <ul>
+          <li>Deployed an open-source pipeline integrating handwritten text recognition with LLM diplomatic correction: <a href="https://github.com/buzzcauldron/strigil" target="_blank" rel="noopener">strigil</a> (IIIF ingest) → Kraken lineation → r7 HTR model (~351,000 training lines from CREMMA, HTRomance, Eutychès, and related corpora; 3.07% character error rate on held-out CREMMA validation) → Ollama/Anthropic/Gemini correction passes via <a href="https://github.com/buzzcauldron/transcription-protocol" target="_blank" rel="noopener">transcription-protocol</a> and <a href="https://github.com/buzzcauldron/transcription-shell" target="_blank" rel="noopener">transcription-shell</a>.</li>
+          <li>Building a 54-manuscript Carolingian computus library indexed from the <a href="https://computus.huma-num.fr/" target="_blank" rel="noopener">Computus in the Carolingian Age (CitCA)</a> catalogue (8th–12th c.; principally Frankish and Rhenish scriptoria). As of July 2026, 15 witnesses acquired (4,554 page images) via IIIF from e-codices (St. Gallen, Bern), Wellcome, NYPL, and related repositories; draft diplomatic transcriptions in progress.</li>
+          <li>Companion stylometry: <code>medieval-proof</code> (Burrows Delta + rolling-entropy genre-shift detection, 13 genre classes) applied to NYPL Computus Text 3 (April 2026) and a Wellcome computistical miscellany; <a href="https://github.com/buzzcauldron/reasoning-stylometry" target="_blank" rel="noopener">reasoning-stylometry</a> extends Burrows Delta to test whether a mathematics paper's subject and reasoning style classify as independent axes.</li>
+        </ul>
+
         <h3>Research Party <span class="date">2025 – Present</span></h3>
         <p class="role">Creator &amp; Developer · Pittsburgh, PA</p>
         <ul>
@@ -779,21 +790,21 @@ The object of poetry is confessedly to act upon the emotions; and therein is poe
           <article class="tool-card" id="tool-historical-ocr">
             <h3><a href="https://github.com/buzzcauldron/historical-ocr" target="_blank" rel="noopener">historical-ocr</a></h3>
             <p class="tool-meta">Self-contained orchestrator · computational-ready text</p>
-            <p>Self-contained orchestrator for computational-ready text from historical sources: print OCR (Tesseract), PDF/IIIF ingest, protocol YAML → TEI, and optional hooks to <a href="https://github.com/buzzcauldron/transcription-shell" target="_blank" rel="noopener">transcription-shell</a> and <code>manuscript-fingerprint</code>.</p>
+            <p>Self-contained orchestrator for computational-ready text from historical sources: print OCR (Tesseract), PDF/IIIF ingest, protocol YAML → TEI, and optional hooks to <a href="https://github.com/buzzcauldron/transcription-shell" target="_blank" rel="noopener">transcription-shell</a> and <code>manuscript-fingerprint</code>. Used for later-period computus witnesses and as a contributing tool in several dissertation projects.</p>
             <p class="tool-links"><a href="https://github.com/buzzcauldron/historical-ocr" target="_blank" rel="noopener">GitHub</a> · <a href="https://github.com/buzzcauldron/historical-ocr/blob/main/docs/USER_GUIDE.md" target="_blank" rel="noopener">User guide</a></p>
           </article>
 
           <article class="tool-card" id="tool-strigil">
             <h3><a href="https://github.com/buzzcauldron/strigil" target="_blank" rel="noopener">strigil</a></h3>
             <p class="tool-meta">Archival web scraper · PDFs, text, images</p>
-            <p>Archival web scraper: high-quality PDFs, text, and images from digital-collection sources (NYPL Digital Collections, CONTENTdm, IIIF manifests, HathiTrust), stored locally with archival-quality image filtering and optional JS rendering (Playwright/Chromium) for dynamic pages.</p>
+            <p>Archival web scraper: high-quality PDFs, text, and images from digital-collection sources (NYPL Digital Collections, CONTENTdm, IIIF manifests, HathiTrust), stored locally with archival-quality image filtering and optional JS rendering (Playwright/Chromium) for dynamic pages. Primary ingest layer for the CitCA computus corpus (e-codices St. Gallen, Wellcome, NYPL, and related IIIF hosts).</p>
             <p class="tool-links"><a href="https://github.com/buzzcauldron/strigil" target="_blank" rel="noopener">GitHub</a></p>
           </article>
 
           <article class="tool-card" id="tool-transcription-shell">
             <h3><a href="https://github.com/buzzcauldron/transcription-shell" target="_blank" rel="noopener">transcription-shell</a></h3>
             <p class="tool-meta">Lineation → PageXML → LLM · Academic Transcription Protocol</p>
-            <p>Lineation → PageXML → LLM transcription following the <a href="https://github.com/buzzcauldron/transcription-protocol" target="_blank" rel="noopener">Academic Handwriting Transcription Protocol</a>; GUI and CLI with Glyph Machina, Kraken, or custom mask lineation; validated YAML output.</p>
+            <p>Production pipeline for lineation → PageXML → LLM transcription following the <a href="https://github.com/buzzcauldron/transcription-protocol" target="_blank" rel="noopener">Academic Handwriting Transcription Protocol</a> (strict no-addition YAML/TEI output, blind-scored on Lincoln correspondence, a medieval psalter, and English plea rolls); GUI and CLI with Glyph Machina, Kraken, or custom mask lineation. NSF ACCESS allocation HUM260005 (PSC Bridges-2) supports HTR training for this workflow.</p>
             <p class="tool-links"><a href="https://github.com/buzzcauldron/transcription-shell" target="_blank" rel="noopener">GitHub</a> · <a href="https://github.com/buzzcauldron/transcription-shell/blob/main/docs/simple-workflow.md" target="_blank" rel="noopener">Simple workflow</a></p>
           </article>
 
@@ -820,7 +831,7 @@ The object of poetry is confessedly to act upon the emotions; and therein is poe
           <article class="tool-card" id="tool-reasoning-stylometry">
             <h3><a href="https://github.com/buzzcauldron/reasoning-stylometry" target="_blank" rel="noopener">reasoning-stylometry</a></h3>
             <p class="tool-meta">R / stylo · Proofs &amp; Reasons · mathematical reasoning style</p>
-            <p>R/<code>stylo</code> pipeline underpinning <a href="https://proofsandreasons.io/" target="_blank" rel="noopener">Proofs &amp; Reasons</a>: classifies mathematical reasoning style (spatial/visual vs. symbolic/derivational) independently from content (geometric vs. algebraic) across JAMS papers, via <code>stylo::classify</code> / <code>rolling.classify</code>, leave-one-out cross-validation, and Delta distance tables.</p>
+            <p>R/<code>stylo</code> pipeline underpinning <a href="https://proofsandreasons.io/" target="_blank" rel="noopener">Proofs &amp; Reasons</a>: classifies mathematical reasoning style (spatial/visual vs. symbolic/derivational) independently from content (geometric vs. algebraic) across JAMS papers, via <code>stylo::classify</code> / <code>rolling.classify</code>, leave-one-out cross-validation, Delta distance tables, and external validation against independently authored style labels.</p>
             <p class="tool-links"><a href="https://github.com/buzzcauldron/reasoning-stylometry" target="_blank" rel="noopener">GitHub</a></p>
           </article>
 
@@ -858,12 +869,17 @@ The object of poetry is confessedly to act upon the emotions; and therein is poe
           <li>"Garlic" (2012). <em>The Tower Light</em>.</li>
           <li>"Orion" (2012). <em>The Tower Light</em>.</li>
         </ul>
+        <h3>Works in Progress</h3>
+        <ul>
+          <li>"Medieval Timekeeping as a Counterpoint for AI-Enabled Time-Sensitive Systems" — accepted proposal, <em>Pittsburgh Review of Books</em>.</li>
+          <li>"Computi as Mathematical Thought: A Stylometric Examination of Post-Aristotelian Shifts in Medieval Calculation" — in preparation.</li>
+        </ul>
       </section>
 
       <section id="lectures" class="cv-section">
         <h2>Invited Lectures (Selected)</h2>
-        <h3>Carnegie Mellon University <span class="date">June 2026 · Pittsburgh, PA</span></h3>
-        <ul><li>"Designing Markdown Prompts for Automatic Text Recognition" June 8, 2026</li></ul>
+        <h3>Digital Humanities Summer Institute <span class="date">June 2026 · Montreal</span></h3>
+        <ul><li>"Designing Markdown Prompts for Automatic Text Recognition" — guest lecture, June 8, 2026, in <a href="https://dhsi.org/2025/09/30/automatic-text-recognition-dhsi-2026/" target="_blank" rel="noopener">From Handwritten Document to Computable Object: Critical Approaches to Automatic Text Recognition for the Digital Humanities</a> (DHSI 2026 Week 2).</li></ul>
         <h3>The Beatrice Institute <span class="date">Aug 2024 – Aug 2025 · Pittsburgh, PA</span></h3>
         <ul>
           <li>"Reflections on Lucian Simon's 'Schola' (1926)" Aug 2025</li>
@@ -902,6 +918,7 @@ The object of poetry is confessedly to act upon the emotions; and therein is poe
       <section id="presentations" class="cv-section">
         <h2>Conference Presentations</h2>
         <ul>
+          <li>DHSI 2026 Week 2 (June 15–19, Montreal). Participant, <em>From Handwritten Document to Computable Object: Critical Approaches to Automatic Text Recognition for the Digital Humanities</em>; developed <code>stylo</code> expertise for the computus stylometry pipeline. <a href="https://dhsi.org/2025/09/30/automatic-text-recognition-dhsi-2026/" target="_blank" rel="noopener">Course description</a></li>
           <li>Bannon, Dylan, Seth Strickland, Elise Wang, Charlotte Whatley, and Michael Zhang (2025). "Making the Law Legible: A Self-Correcting BERT-Like Transformer as Manuscript Transcription Aid." The 27th Conference of the Association for the Study of Law, Culture, and the Humanities.</li>
           <li>"Divine Daughters in Law" (2025). 27th Conference of the Association for the Study of Law, Culture, and the Humanities, Georgetown Law, Washington, D.C.</li>
           <li>"The Brazen Head of Vector Analysis: Robert Grosseteste and Albertus Magnus as Technological Forerunners" (2025). Twentieth International Conference on Interdisciplinary Social Sciences | <em>Minds and Machines</em>.</li>
@@ -947,7 +964,7 @@ The object of poetry is confessedly to act upon the emotions; and therein is poe
     </main>
 
     <footer>
-      <p>Last updated: July 23, 2026</p>
+      <p>Last updated: August 3, 2026</p>
     </footer>
 
     <a href="#" class="back-to-top" id="back-to-top" aria-label="Return to top">↑ Top</a>
