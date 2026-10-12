@@ -1,0 +1,138 @@
+%==============================================================================
+%  Seth Strickland — Resume: AI / Strategy / Project Management
+%  Self-contained. Compile with: pdflatex Resume_AI_Strategy.tex
+%==============================================================================
+\documentclass[11pt,letterpaper]{article}
+
+\usepackage[margin=0.72in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage[hidelinks]{hyperref}
+
+% ---- palette ----------------------------------------------------------------
+\definecolor{accent}{RGB}{31,41,55}    % slate
+\definecolor{rulecol}{RGB}{160,160,160}
+
+\hypersetup{colorlinks=true, urlcolor=accent, linkcolor=accent,
+            pdftitle={Seth Strickland - Resume (AI, Strategy, Project Management)}}
+
+% ---- section headers --------------------------------------------------------
+\titleformat{\section}
+  {\normalsize\bfseries\scshape\color{accent}}{}{0em}{}[{\color{rulecol}\titlerule}]
+\titlespacing{\section}{0pt}{0.95em}{0.45em}
+
+\setlist[itemize]{leftmargin=1.25em, nosep, topsep=2pt, label=\small\textbullet}
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+
+% ---- entry macros -----------------------------------------------------------
+\newcommand{\entry}[4]{%
+  \noindent\begin{tabularx}{\linewidth}{@{}X r@{}}
+    \textbf{#1} & \textbf{#4}\\
+    \textit{#2, #3} & \\
+  \end{tabularx}\vspace{1pt}}
+\newcommand{\edu}[3]{%
+  \noindent\begin{tabularx}{\linewidth}{@{}X r@{}}%
+    \textbf{#1} \textnormal{— #2} & #3\\
+  \end{tabularx}}
+% \proj{name}{description}
+\newcommand{\proj}[2]{\item \textbf{#1} --- #2}
+
+\begin{document}
+
+%---------------------------------- HEADER ------------------------------------
+{\Huge\bfseries\color{accent} Seth Strickland}\\[5pt]
+{\small
+  \href{mailto:strickland@cmu.edu}{strickland@cmu.edu} \ \textbf{·}\
+  +1 607 288 2604 \ \textbf{·}\ Pittsburgh, PA\\[2pt]
+  \href{https://linkedin.com/in/sethjstrickland}{linkedin.com/in/sethjstrickland} \ \textbf{·}\
+  \href{https://buzzcauldron.github.io}{buzzcauldron.github.io} \ \textbf{·}\
+  \href{https://github.com/buzzcauldron}{github.com/buzzcauldron}
+}\\[4pt]
+{\color{rulecol}\hrule height 0.9pt}
+\vspace{4pt}
+
+%---------------------------------- SUMMARY -----------------------------------
+\section{Profile}
+Technical program lead and computational researcher who designs and ships NLP and computer-vision
+tooling and coordinates cross-functional research teams. Builds ML-backed systems end to end ---
+data pipelines, transcription models, and LLM prompting and evaluation frameworks --- and wins
+competitive funding through technical proposal writing, including an approved SBIR pre-application.
+
+%------------------------------ CORE COMPETENCIES -----------------------------
+\section{Core Competencies}
+NLP \& LLM Prompt Engineering \ \textbullet\ Transformers (BERT-like) \& Computer Vision (ResNet)
+\ \textbullet\ OCR / Document AI (Kraken, Tesseract) \ \textbullet\ Data Pipelines \& Tooling
+\ \textbullet\ Stylometry \& Text Analytics \ \textbullet\ Product Design \& Delivery
+\ \textbullet\ Cross-Functional Program Management \ \textbullet\ Technical \& Grant Writing
+\ \textbullet\ Python, R, Julia, JavaScript \ \textbullet\ Git, Linux, LaTeX
+
+%--------------------------------- EXPERIENCE ---------------------------------
+\section{Experience}
+
+\entry{Technical Liaison \& Developer}{Glyph Machina}{Remote}{2023 -- Present}
+\begin{itemize}
+  \item Bridge domain experts and engineering to specify, build, and maintain software for a manuscript-transcription product, including a visual XML editor and automated Latin-abbreviation expansion.
+  \item Authored an approved SBIR pre-application and internal technical documentation, opening a path to non-dilutive R\&D funding.
+  \item Own the end-to-end transcription workflow, from image line-segmentation through LLM transcription to validated, structured output.
+  \item Trained a Kraken HTR model (CNN $\rightarrow$ LSTM) on $\sim$351{,}000 annotated manuscript lines to a 3\% character-error rate on held-out validation, feeding an LLM correction pass; applied it to a new corpus of $\sim$40 medieval manuscripts ($\sim$4{,}500 pages to date).
+\end{itemize}
+\vspace{5pt}
+
+\entry{Researcher}{Proofs \& Reasons, Carnegie Mellon University}{Pittsburgh, PA}{2026 -- Present}
+\begin{itemize}
+  \item Lead an NLP and stylometry initiative modeling the long-run development of mathematical reasoning across a large historical corpus (\href{https://proofsandreasons.io/}{proofsandreasons.io}).
+  \item Built an R/\texttt{stylo} classification pipeline that separates reasoning style from subject content, with leave-one-out cross-validation and distance-based reporting.
+  \item Won a competitive NSF ACCESS allocation (1,454 GPU-hours + 1,399 GB on PSC Bridges-2) to train the lineation, transcription, and stylometry models on multi-century manuscript corpora.
+\end{itemize}
+\vspace{5pt}
+
+\entry{Creator \& Developer}{Research Party}{Pittsburgh, PA}{2025 -- Present}
+\begin{itemize}
+  \item Designed and launched a bibliographic-analysis platform that maps social networks and bias across citation corpora and supports exploratory Q\&A over a document set, now used by 24,330+ users across many labs/departments.
+  \item Integrated an OCR-based citation-ingest pipeline for automated corpus construction.
+\end{itemize}
+\vspace{5pt}
+
+\entry{Founder \& Coordinator}{Computational Humanities Initiatives, CMU}{Pittsburgh, PA}{2025 -- 2026}
+\begin{itemize}
+  \item Founded and ran cross-departmental research groups --- one of which became a required graduate seminar --- coordinating programming with the Posner Center and CMU Libraries.
+  \item Managed events, logistics, and stakeholder coordination across departments and institutions.
+\end{itemize}
+\vspace{5pt}
+
+\entry{Lecturer, Writing \& Communication}{Carnegie Mellon University}{Pittsburgh, PA}{2023 -- Present}
+\begin{itemize}
+  \item Designed a course uniting the philosophy of computer science and poetics, and built curricula on the critical, effective use of AI tools.
+\end{itemize}
+
+%----------------------------- TECHNICAL PROJECTS -----------------------------
+\section{Selected Technical Projects}
+\begin{itemize}
+  \proj{Research Party}{bibliographic-analysis platform I designed and launched --- \textbf{see it live} at \href{https://research-party.com}{research-party.com}; maps networks and bias across citation corpora with OCR-based ingest.}
+  \proj{historical-ocr}{orchestrator turning historical sources into computation-ready text (OCR, IIIF/PDF ingest, YAML $\rightarrow$ TEI).}
+  \proj{transcription-shell + transcription-protocol}{LLM transcription pipeline (125 commits) with a strict, provider-agnostic prompting protocol; benchmarks Anthropic, Gemini, and local Ollama models against ground truth.}
+  \proj{manuscript-fingerprint}{computer-vision type attribution via Kraken line segmentation and a ResNet glyph encoder.}
+  \proj{reasoning-stylometry}{R/\texttt{stylo} classifier separating mathematical reasoning style from content, externally validated against 31 human-declared labels.}
+  \proj{strigil}{archival web scraper for high-quality text and images from digital-collection sources.}
+\end{itemize}
+
+%------------------------------ SELECTED RESEARCH -----------------------------
+\section{Selected Research}
+\begin{itemize}
+  \item Co-author, ``Democratizing the Medieval English Legal Tradition,'' \textit{arXiv}, cs.CV (2026).
+  \item ``Making the Law Legible: A Self-Correcting BERT-Like Transformer as Manuscript Transcription Aid,'' Conference of the Association for the Study of Law, Culture, and the Humanities (2025).
+\end{itemize}
+
+%--------------------------------- EDUCATION ----------------------------------
+\section{Education}
+\edu{PhD, Medieval Literature}{Cornell University}{2022}\\[3pt]
+\edu{MA, English}{Saint Louis University}{2016}\\[3pt]
+\edu{BA, Classics \& English Literature}{Hillsdale College}{2012}
+
+\end{document}

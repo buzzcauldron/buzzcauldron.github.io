@@ -127,8 +127,17 @@
       margin: 0;
     }
 
-    .cv-download {
+    .header-downloads {
       flex: 0 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 0.45rem 0.55rem;
+      max-width: 100%;
+    }
+
+    .cv-download {
       display: inline-block;
       padding: 0.45rem 0.85rem;
       font-family: var(--font-sans);
@@ -140,6 +149,23 @@
       border: none;
     }
     .cv-download:hover { opacity: 0.9; color: #fff; }
+
+    .resume-download {
+      display: inline-block;
+      padding: 0.4rem 0.7rem;
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--color-accent);
+      text-decoration: none;
+      border: 1px solid var(--color-border);
+      background: #fff;
+      white-space: nowrap;
+    }
+    .resume-download:hover {
+      border-color: var(--color-accent);
+      text-decoration: underline;
+    }
 
     .site-contact {
       margin: 0.65rem 0 0 0;
@@ -545,7 +571,11 @@
     <header class="site-header">
       <div class="header-identity">
         <h1>Seth Strickland</h1>
-        <a href="cv.pdf" class="cv-download" download aria-label="Download curriculum vitae PDF">Download CV</a>
+        <div class="header-downloads">
+          <a href="cv.pdf" class="cv-download" download aria-label="Download full academic curriculum vitae PDF">Download CV</a>
+          <a href="resume-writing-editing.pdf" class="resume-download" download aria-label="Download writing and editing resume PDF">Writing resume</a>
+          <a href="resume-ai-strategy.pdf" class="resume-download" download aria-label="Download AI and strategy resume PDF">AI resume</a>
+        </div>
       </div>
       <address class="contact site-contact">
         <a href="mailto:sstrickl@andrew.cmu.edu">sstrickl@andrew.cmu.edu</a> · H +1 607 288 2604 · Instagram <a href="https://www.instagram.com/sethcoastisthebestcoast/">@sethcoastisthebestcoast</a> · <a href="https://buzzcauldron.github.io">buzzcauldron</a>
@@ -771,6 +801,13 @@ The object of poetry is confessedly to act upon the emotions; and therein is poe
           <li>Companion stylometry: <em>medieval-proof</em> (Burrows Delta + rolling-entropy genre-shift detection, 13 genre classes) applied to NYPL Computus Text 3 (April 2026) and a Wellcome computistical miscellany; <em>reasoning-stylometry</em> extends Burrows Delta to test whether a mathematics paper's subject and reasoning style classify as independent axes (<a href="https://github.com/buzzcauldron/reasoning-stylometry" target="_blank" rel="noopener">GitHub</a>).</li>
         </ul>
 
+        <h3>Beatrice Institute — Collegiate Cultural Foundation Programming <span class="date">AY 2026–27</span></h3>
+        <p class="role">Program collaborator · Pittsburgh, PA</p>
+        <ul>
+          <li>Co-proposed (with James DeMasi, Meredith McDonough Thornburgh, and Grant Martsolf) an eight-event undergraduate series for the <a href="https://beatriceinstitute.org/" target="_blank" rel="noopener">Beatrice Institute</a>: seven seminars and one lecture on monogamous marriage, family life, sexual integrity, and male–female dynamics—dating, mate selection, and marriage “calculus.” Funded by a $20,000 Collegiate Cultural Foundation grant (awarded without revision).</li>
+          <li>Seminar leader: “Call Him Hither: Have We Ever Known How to Date?”—historical courtship and modern dating through selections from Amy and Leon Kass’s <em>Wing to Wing, Oar to Oar</em> (<em>Pride and Prejudice</em>, <em>As You Like It</em>, Erasmus, Rousseau, and related texts).</li>
+        </ul>
+
         <h3>Research Party <span class="date">2025 – Present</span></h3>
         <p class="role">Creator &amp; Developer · Pittsburgh, PA</p>
         <ul>
@@ -907,8 +944,9 @@ The object of poetry is confessedly to act upon the emotions; and therein is poe
         <h2>Invited Lectures (Selected)</h2>
         <h3>Digital Humanities Summer Institute <span class="date">June 2026 · Montreal</span></h3>
         <ul><li>"Designing Markdown Prompts for Automatic Text Recognition" — guest lecture, June 8, 2026, in <a href="https://dhsi.org/2025/09/30/automatic-text-recognition-dhsi-2026/" target="_blank" rel="noopener">From Handwritten Document to Computable Object: Critical Approaches to Automatic Text Recognition for the Digital Humanities</a> (DHSI 2026 Week 2).</li></ul>
-        <h3>The Beatrice Institute <span class="date">Aug 2024 – Aug 2025 · Pittsburgh, PA</span></h3>
+        <h3>The Beatrice Institute <span class="date">Aug 2024 – AY 2026–27 · Pittsburgh, PA</span></h3>
         <ul>
+          <li>"Call Him Hither: Have We Ever Known How to Date?" — Collegiate Cultural Foundation undergraduate seminar series (forthcoming, AY 2026–27)</li>
           <li>"Reflections on Lucian Simon's 'Schola' (1926)" Aug 2025</li>
           <li>"Romantic Poetry: The Theology of Blake's Poison Tree" Mar 2025</li>
           <li>"Piers Plowman and Questions of Justice" Feb 2025</li>
@@ -924,6 +962,7 @@ The object of poetry is confessedly to act upon the emotions; and therein is poe
       <section id="awards" class="cv-section">
         <h2>Awards, Fellowships, and Grants</h2>
         <ul>
+          <li>Collegiate Cultural Foundation Grant ($20,000) — <a href="https://beatriceinstitute.org/" target="_blank" rel="noopener">Beatrice Institute</a> (co-proposer with James DeMasi, Meredith McDonough Thornburgh, and Grant Martsolf; eight-event undergraduate series on marriage, dating, and sexuality, AY 2026–27; awarded without revision)</li>
           <li>ACCESS Allocation HUM260005 — <em>Transcriber Shell</em> (1,454 GPU hours, 1,399 GB storage, PSC Bridges-2; 2026) — NSF ACCESS. <a href="https://www.xras.org/public/requests/271587-ACCESS-HUM260005" target="_blank" rel="noopener">XRAS</a></li>
           <li>Project &amp; Proposals Award ($2000) — American Society for Legal History</li>
           <li>Provost's Inclusive Teaching Fellowship ($5000) — Carnegie Mellon University</li>
@@ -991,7 +1030,7 @@ The object of poetry is confessedly to act upon the emotions; and therein is poe
     </main>
 
     <footer>
-      <p>Last updated: August 3, 2026</p>
+      <p>Last updated: October 12, 2026</p>
     </footer>
 
     <a href="#" class="back-to-top" id="back-to-top" aria-label="Return to top">↑ Top</a>

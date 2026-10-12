@@ -1,0 +1,140 @@
+%==============================================================================
+%  Seth Strickland — Resume: Writing, Editing & Consulting
+%  Self-contained. Compile with: pdflatex Resume_Writing_Editing.tex
+%==============================================================================
+\documentclass[11pt,letterpaper]{article}
+
+\usepackage[margin=0.72in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage[hidelinks]{hyperref}
+
+% ---- palette ----------------------------------------------------------------
+\definecolor{accent}{RGB}{31,41,55}    % slate
+\definecolor{rulecol}{RGB}{160,160,160}
+
+\hypersetup{colorlinks=true, urlcolor=accent, linkcolor=accent,
+            pdftitle={Seth Strickland - Resume (Writing, Editing, Consulting)}}
+
+% ---- section headers --------------------------------------------------------
+\titleformat{\section}
+  {\normalsize\bfseries\scshape\color{accent}}{}{0em}{}[{\color{rulecol}\titlerule}]
+\titlespacing{\section}{0pt}{0.95em}{0.45em}
+
+\setlist[itemize]{leftmargin=1.25em, nosep, topsep=2pt, label=\small\textbullet}
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+
+% ---- entry macros -----------------------------------------------------------
+% \entry{Role}{Organization}{Location}{Dates}
+\newcommand{\entry}[4]{%
+  \noindent\begin{tabularx}{\linewidth}{@{}X r@{}}
+    \textbf{#1} & \textbf{#4}\\
+    \textit{#2, #3} & \\
+  \end{tabularx}\vspace{1pt}}
+% \edu{Degree}{Institution}{Year}
+\newcommand{\edu}[3]{%
+  \noindent\begin{tabularx}{\linewidth}{@{}X r@{}}%
+    \textbf{#1} \textnormal{— #2} & #3\\
+  \end{tabularx}}
+
+\begin{document}
+
+%---------------------------------- HEADER ------------------------------------
+{\Huge\bfseries\color{accent} Seth Strickland}\\[5pt]
+{\small
+  \href{mailto:strickland@cmu.edu}{strickland@cmu.edu} \ \textbf{·}\
+  +1 607 288 2604 \ \textbf{·}\ Pittsburgh, PA\\[2pt]
+  \href{https://linkedin.com/in/sethjstrickland}{linkedin.com/in/sethjstrickland} \ \textbf{·}\
+  \href{https://buzzcauldron.github.io}{buzzcauldron.github.io} \ \textbf{·}\
+  \href{https://github.com/buzzcauldron}{github.com/buzzcauldron}
+}\\[4pt]
+{\color{rulecol}\hrule height 0.9pt}
+\vspace{4pt}
+
+%---------------------------------- SUMMARY -----------------------------------
+\section{Profile}
+Writer, editor, and communication consultant with a PhD and over a decade of experience teaching
+writing and guiding long-form projects to publication. Skilled at translating complex, specialist
+material into clear prose for general, professional, and executive audiences, and at coaching authors
+through developmental editing from first draft to finished, market-ready work.
+
+%------------------------------ CORE COMPETENCIES -----------------------------
+\section{Core Competencies}
+Developmental \& Line Editing \ \textbullet\ Copyediting \& Proofreading \ \textbullet\ Curriculum \&
+Instructional Design \ \textbullet\ Rhetoric \& Argumentation \ \textbullet\ Plain-Language \& Technical
+Writing \ \textbullet\ Public Communication \& Talks \ \textbullet\ Editorial Standards \& Style Guides
+\ \textbullet\ Grant \& Proposal Writing \ \textbullet\ LaTeX, Markdown, Word
+
+%--------------------------------- EXPERIENCE ---------------------------------
+\section{Experience}
+
+\entry{Writing Consultant \& Faculty}{Gilliam Writers Group}{New York, NY}{2022 -- Present}
+\begin{itemize}
+  \item Advise creative and academic authors on structure, revision, and developmental editing, bringing several book- and article-length projects from draft to completion and to market.
+  \item Place clients in MFA and equivalent programs regularly.
+  \item Deliver line-level editing and manuscript feedback across fiction, nonfiction, and scholarly genres.
+\end{itemize}
+\vspace{5pt}
+
+\entry{Lecturer, Writing \& Communication}{Carnegie Mellon University}{Pittsburgh, PA}{2023 -- Present}
+\begin{itemize}
+  \item Design and teach professional, argumentative, and interdisciplinary writing courses, including \textit{Writing for the Professions} and a course uniting computing and rhetoric.
+  \item Build reusable curricula and guides --- including materials on the critical, effective use of AI writing tools --- and provide individualized editorial feedback to 50+ students each term.
+  \item Authored the successful proposal for a competitive NSF ACCESS research allocation supporting a departmental digital-humanities project.
+  \item Recognized as a Provost's Inclusive Teaching Fellow.
+\end{itemize}
+\vspace{5pt}
+
+\entry{Contributing Editor \& Reviewer}{Year's Work in English Studies (Oxford UP) and others}{Remote}{2022 -- 2025}
+\begin{itemize}
+  \item Authored the commissioned annual survey chapter on Middle English (Langland) for four consecutive volumes, synthesizing a year of scholarship into a concise, authoritative review.
+  \item Served as peer reviewer and book reviewer for scholarly journals and a publication on online course and curriculum design.
+\end{itemize}
+\vspace{5pt}
+
+\entry{Co-Founder \& Organizer}{Public Works \& Issuing Citations}{Ithaca, NY / Pittsburgh, PA}{2022 -- Present}
+\begin{itemize}
+  \item Co-founded and ran interdisciplinary public talk series connecting academic speakers with general audiences (\href{https://www.publicworks.info}{publicworks.info}), editing and shaping talks for accessibility.
+  \item Established a cross-disciplinary forum for presenting work-in-progress to non-specialist peers.
+\end{itemize}
+\vspace{5pt}
+
+\entry{Program Collaborator}{Beatrice Institute}{Pittsburgh, PA}{AY 2026--27}
+\begin{itemize}
+  \item Co-proposed (with James DeMasi, Meredith McDonough Thornburgh, and Grant Martsolf) an eight-event undergraduate series on marriage, dating, mate selection, and sexual integrity; \$20{,}000 Collegiate Cultural Foundation grant awarded without revision.
+  \item Seminar leader: ``Call Him Hither: Have We Ever Known How to Date?'' (readings from \textit{Wing to Wing, Oar to Oar} and related courtship texts).
+\end{itemize}
+\vspace{5pt}
+
+\entry{Instructor \& Lecturer (earlier)}{Cornell University \& Saint Louis University}{Ithaca, NY / St.\ Louis, MO}{2014 -- 2023}
+\begin{itemize}
+  \item Taught writing, rhetoric, and research composition as Instructor of Record and Lecturer across a range of undergraduate courses.
+  \item Recognized as a University Writing Services Mentor of the Month.
+\end{itemize}
+
+%------------------------------ SELECTED WORK ---------------------------------
+\section{Selected Publications}
+\begin{itemize}
+  \item Essays in the \textit{Pittsburgh Review of Books}: ``\,`Magnifica Humanitas' and Bullshit Jobs'' (2026); ``Medieval Timekeeping as a Counterpoint for AI-Enabled Time-Sensitive Systems'' (forthcoming).
+  \item Co-author, ``Democratizing the Medieval English Legal Tradition,'' \textit{arXiv} (2026).
+  \item Poetry in \textit{Goodbye, Mexico: Poems of Remembrance} (Texas A\&M University Press), \textit{Stink Eye Magazine}, and \textit{The Pierian}.
+  \item Scholarly reviews in \textit{Law and History Review} and \textit{Literary Research}.
+\end{itemize}
+
+%--------------------------------- PROJECTS -----------------------------------
+\section{Selected Projects}
+\textbf{Research Party} --- a digital-humanities platform I designed, built, and launched for mapping bias and social networks across bibliographies. See it live at \href{https://research-party.com}{research-party.com}; further tools and code at \href{https://github.com/buzzcauldron}{github.com/buzzcauldron}.
+
+%--------------------------------- EDUCATION ----------------------------------
+\section{Education}
+\edu{PhD, Medieval Literature}{Cornell University}{2022}\\[3pt]
+\edu{MA, English}{Saint Louis University}{2016}\\[3pt]
+\edu{BA, Classics \& English Literature}{Hillsdale College}{2012}
+
+\end{document}
