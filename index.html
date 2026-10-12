@@ -107,6 +107,11 @@
       padding: 2rem 1.5rem;
     }
 
+    main {
+      max-width: 100%;
+      min-width: 0;
+    }
+
     header.site-header {
       border-bottom: 1px solid var(--color-border);
       padding-bottom: 2rem;
@@ -413,11 +418,20 @@
       font-family: 'ui-monospace', monospace;
       font-size: 0.85rem;
       white-space: pre-wrap;
-      word-break: break-all;
+      word-break: break-word;
+      overflow-wrap: anywhere;
+      max-width: 100%;
+      overflow-x: auto;
+      contain: inline-size;
       background: #fff;
       border: 1px solid var(--color-border);
     }
     .encrypt-output:empty { display: none; }
+    .encrypt-output pre,
+    .encrypt-output code {
+      max-width: 100%;
+      overflow-x: auto;
+    }
     .file-collapse { display: inline-block; vertical-align: baseline; }
     .file-collapse summary {
       cursor: pointer;
@@ -455,8 +469,20 @@
     .notebook-xml .nb-text { color: #d4d4d4; }
     .notebook-xml .nb-latin { color: #dcdcaa; }
     .viz-header, .viz-msg { color: var(--color-accent); }
-    .viz-block { margin: 0.5rem 0; white-space: pre-wrap; word-break: break-all; }
-    .viz-token { display: block; margin-top: 0.5rem; word-break: break-all; }
+    .viz-block {
+      margin: 0.5rem 0;
+      white-space: pre-wrap;
+      word-break: break-word;
+      overflow-wrap: anywhere;
+      max-width: 100%;
+    }
+    .viz-token {
+      display: block;
+      margin-top: 0.5rem;
+      word-break: break-word;
+      overflow-wrap: anywhere;
+      max-width: 100%;
+    }
     .research-party-tool > p.contact {
       margin: 0 0 0.75rem 0;
     }
@@ -482,13 +508,23 @@
       color: var(--color-text);
       margin: 1rem 0;
       overflow: hidden;
-      contain: layout;
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 7;
+      contain: layout style;
+      max-width: 100%;
     }
-    .flicker-line { margin: 0.5rem 0; }
-    .flicker-word { display: inline-block; margin-right: 0.25em; }
+    .flicker-line {
+      margin: 0.5rem 0;
+      max-width: 100%;
+      overflow: hidden;
+    }
+    .flicker-word {
+      display: inline-block;
+      margin-right: 0.25em;
+      vertical-align: top;
+      white-space: nowrap;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
     .flicker-word:hover { opacity: 1 !important; }
 
     .section-sep {
@@ -1217,14 +1253,47 @@ The object of poetry is confessedly to act upon the emotions; and therein is poe
     window.addEventListener('scroll', toggleBackToTop);
     toggleBackToTop();
 
-    // Flickering text: alternate between original and base64
-    const flickerWords = document.querySelectorAll('.flicker-word');
+    // Flickering text: alternate between original and base64 without reflowing the page
+    const flickerSection = document.getElementById('flicker');
+    const flickerWords = flickerSection ? flickerSection.querySelectorAll('.flicker-word') : [];
+
+    function stabilizeFlickerLayout() {
+      if (!flickerSection || !flickerWords.length) return;
+      flickerSection.style.minHeight = '';
+      flickerWords.forEach(word => { word.style.minWidth = ''; });
+
+      const probe = document.createElement('span');
+      probe.className = 'flicker-word';
+      probe.setAttribute('aria-hidden', 'true');
+      probe.style.cssText = 'position:absolute;visibility:hidden;pointer-events:none;white-space:nowrap;';
+      flickerSection.appendChild(probe);
+
+      flickerWords.forEach(word => {
+        const original = word.getAttribute('data-original') || '';
+        const encrypted = word.getAttribute('data-encrypted') || '';
+        probe.textContent = original;
+        const wOriginal = probe.offsetWidth;
+        probe.textContent = encrypted;
+        const wEncrypted = probe.offsetWidth;
+        word.style.minWidth = Math.max(wOriginal, wEncrypted, 1) + 'px';
+      });
+      probe.remove();
+      flickerSection.style.minHeight = flickerSection.offsetHeight + 'px';
+    }
+
+    stabilizeFlickerLayout();
+    let flickerResizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(flickerResizeTimer);
+      flickerResizeTimer = setTimeout(stabilizeFlickerLayout, 120);
+    });
+
     flickerWords.forEach((word, index) => {
       const original = word.getAttribute('data-original');
       const encrypted = word.getAttribute('data-encrypted');
       let showingOriginal = true;
-      word.addEventListener('mouseenter', () => word.dataset.paused = '1');
-      word.addEventListener('mouseleave', () => delete word.dataset.paused);
+      word.addEventListener('mouseenter', () => { word.dataset.paused = '1'; });
+      word.addEventListener('mouseleave', () => { delete word.dataset.paused; });
       setInterval(() => {
         if (!word.dataset.paused) {
           word.textContent = showingOriginal ? encrypted : original;
