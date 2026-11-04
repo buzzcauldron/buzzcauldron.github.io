@@ -1,0 +1,128 @@
+%==============================================================================
+%  Seth Strickland — Resume: Academic & Administrative Operations
+%  Self-contained. Compile with: pdflatex resume-operations.tex
+%==============================================================================
+\documentclass[11pt,letterpaper]{article}
+
+\usepackage[margin=0.72in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage[hidelinks]{hyperref}
+
+% ---- palette ----------------------------------------------------------------
+\definecolor{accent}{RGB}{31,41,55}    % slate
+\definecolor{rulecol}{RGB}{160,160,160}
+
+\hypersetup{colorlinks=true, urlcolor=accent, linkcolor=accent,
+            pdftitle={Seth Strickland - Resume (Academic and Administrative Operations)}}
+
+% ---- section headers --------------------------------------------------------
+\titleformat{\section}
+  {\normalsize\bfseries\scshape\color{accent}}{}{0em}{}[{\color{rulecol}\titlerule}]
+\titlespacing{\section}{0pt}{0.95em}{0.45em}
+
+\setlist[itemize]{leftmargin=1.25em, nosep, topsep=2pt, label=\small\textbullet}
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+
+% ---- entry macros -----------------------------------------------------------
+\newcommand{\entry}[4]{%
+  \noindent\begin{tabularx}{\linewidth}{@{}X r@{}}
+    \textbf{#1} & \textbf{#4}\\
+    \textit{#2, #3} & \\
+  \end{tabularx}\vspace{1pt}}
+\newcommand{\edu}[3]{%
+  \noindent\begin{tabularx}{\linewidth}{@{}X r@{}}%
+    \textbf{#1} \textnormal{— #2} & #3\\
+  \end{tabularx}}
+
+\begin{document}
+
+%---------------------------------- HEADER ------------------------------------
+{\Huge\bfseries\color{accent} Seth Strickland}\\[5pt]
+{\small
+  \href{mailto:strickland@cmu.edu}{strickland@cmu.edu} \ \textbf{·}\
+  +1 607 288 2604 \ \textbf{·}\ Pittsburgh, PA\\[2pt]
+  \href{https://linkedin.com/in/sethjstrickland}{linkedin.com/in/sethjstrickland} \ \textbf{·}\
+  \href{https://buzzcauldron.github.io}{buzzcauldron.github.io} \ \textbf{·}\
+  \href{https://github.com/buzzcauldron}{github.com/buzzcauldron}
+}\\[4pt]
+{\color{rulecol}\hrule height 0.9pt}
+\vspace{4pt}
+
+%---------------------------------- SUMMARY -----------------------------------
+\section{Profile}
+Academic operations specialist with a PhD and experience supporting graduate programs, faculty
+affairs, and cross-unit initiatives at a research university. Trusted partner to department
+leadership on recruitment, handbook and RPT processes, program launches, and organizational
+assessment---combining clear written communication with data-informed review and stakeholder
+coordination across faculty, staff, and college-level offices.
+
+%------------------------------ CORE COMPETENCIES -----------------------------
+\section{Core Competencies}
+Graduate Recruitment \& Admissions \ \textbullet\ Retention, Promotion \& Tenure (RPT) Support
+\ \textbullet\ Handbook \& Policy Review \ \textbullet\ Program \& Certificate Launch
+\ \textbullet\ Academic Affairs Assessment \ \textbullet\ Staffing \& Adjunct-Appointment Planning
+\ \textbullet\ Graduate Data Review \ \textbullet\ Stakeholder \& Event Coordination
+\ \textbullet\ Grant \& Program Proposals \ \textbullet\ Public-Facing Communications
+\ \textbullet\ Workday-Ready Documentation \ \textbullet\ LaTeX, Markdown, Excel
+
+%--------------------------------- EXPERIENCE ---------------------------------
+\section{Experience}
+
+\entry{Academic and Administrative Operations Advisor (Special Faculty)}{Carnegie Mellon University, Department of English}{Pittsburgh, PA}{Oct -- Dec 2026}
+\begin{itemize}
+  \item Extension of part-time special faculty appointment ($\sim$10--15 hrs/week), reporting to the Department Head; supported English graduate program operations alongside a continuing Lecturer role.
+  \item Led graduate recruitment: campaign planning, applicant follow-up, and review of Dietrich College graduate applications; refined public-facing graduate recruitment FAQs.
+  \item Coordinated PhD certificate launch with staff and faculty; collaborated on graduate handbook revisions and RPT processes; conducted graduate student data review.
+  \item Assessed departmental administrative structure for academic affairs, staff duty assignments, and part-time adjunct appointment needs.
+\end{itemize}
+\vspace{5pt}
+
+\entry{Graduate Advisor (Special Faculty)}{Carnegie Mellon University, Department of English}{Pittsburgh, PA}{Sep -- Oct 2026}
+\begin{itemize}
+  \item Part-time special faculty appointment ($\sim$10 hrs/week): graduate recruitment and Dietrich application review; AI-assisted grad recruitment FAQs; PhD certificate coordination; handbook and RPT support; graduate data review.
+\end{itemize}
+\vspace{5pt}
+
+\entry{Lecturer, Writing \& Communication}{Carnegie Mellon University}{Pittsburgh, PA}{2023 -- Present}
+\begin{itemize}
+  \item Design and deliver writing and communication courses for interdisciplinary undergraduates; develop reusable curricular materials and student-facing guides at scale (50+ students per term).
+  \item Member, Diversity, Equity, and Inclusion Working Group, Department of English.
+  \item Provost's Inclusive Teaching Fellow.
+\end{itemize}
+\vspace{5pt}
+
+\entry{Founder \& Coordinator}{Computational Humanities Initiatives, CMU}{Pittsburgh, PA}{2025 -- 2026}
+\begin{itemize}
+  \item Founded and ran cross-departmental research programming---including a series that became a required graduate seminar---in partnership with the Posner Center and CMU Libraries.
+  \item Managed event logistics, scheduling, and multi-unit stakeholder communication.
+\end{itemize}
+\vspace{5pt}
+
+\entry{Program Collaborator}{Beatrice Institute}{Pittsburgh, PA}{AY 2026--27}
+\begin{itemize}
+  \item Co-proposed an eight-event undergraduate series; secured a \$20{,}000 Collegiate Cultural Foundation grant (awarded without revision) with three co-proposers.
+  \item Seminar leader for a seven-session undergraduate series on courtship, dating, and marriage.
+\end{itemize}
+\vspace{5pt}
+
+\entry{Graduate Leadership \& Instruction (earlier)}{Cornell University \& Saint Louis University}{Ithaca, NY / St.\ Louis, MO}{2014 -- 2023}
+\begin{itemize}
+  \item President, Medieval Studies Graduate Organization; Graduate Policy and Liaison Committee member (Cornell).
+  \item EGSO event planner and treasurer; Graduate Student Association representative for English (Saint Louis University).
+  \item Instructor of Record and Martino Lecturer across writing and literature courses.
+\end{itemize}
+
+%--------------------------------- EDUCATION ----------------------------------
+\section{Education}
+\edu{PhD, Medieval Literature}{Cornell University}{2022}\\[3pt]
+\edu{MA, English}{Saint Louis University}{2016}\\[3pt]
+\edu{BA, Classics \& English Literature}{Hillsdale College}{2012}
+
+\end{document}
